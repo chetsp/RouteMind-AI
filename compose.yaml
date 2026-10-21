@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: routemind
+      POSTGRES_PASSWORD: local-demo-only
+      POSTGRES_DB: routemind
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U routemind -d routemind"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://routemind:local-demo-only@db:5432/routemind
+      DATA_DIR: /app/.data
+      ROUTEMIND_MODEL: ${ROUTEMIND_MODEL:-}
+      ROUTEMIND_API_KEY: ${ROUTEMIND_API_KEY:-}
+      EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-hash}
+    volumes:
+      - evidence_data:/app/.data
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  postgres_data:
+  evidence_data:

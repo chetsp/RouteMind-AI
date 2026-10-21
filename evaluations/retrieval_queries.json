@@ -1,0 +1,602 @@
+[
+  {
+    "query": "Cobalt Secure Ground service profile",
+    "gold_source_ids": [
+      "profile-C01-1",
+      "profile-C01-2",
+      "profile-C01-3",
+      "profile-C01-4",
+      "profile-C01-5"
+    ]
+  },
+  {
+    "query": "Cobalt Secure Ground: fragile secure",
+    "gold_source_ids": [
+      "profile-C01-1",
+      "profile-C01-2",
+      "profile-C01-3",
+      "profile-C01-4",
+      "profile-C01-5"
+    ]
+  },
+  {
+    "query": "What handling does Cobalt Secure Ground provide?",
+    "gold_source_ids": [
+      "profile-C01-1",
+      "profile-C01-2",
+      "profile-C01-3",
+      "profile-C01-4",
+      "profile-C01-5"
+    ]
+  },
+  {
+    "query": "Cobalt Secure Ground pallet shipping",
+    "gold_source_ids": [
+      "profile-C01-1",
+      "profile-C01-2",
+      "profile-C01-3",
+      "profile-C01-4",
+      "profile-C01-5"
+    ]
+  },
+  {
+    "query": "Cobalt Secure Ground cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C01-1",
+      "profile-C01-2",
+      "profile-C01-3",
+      "profile-C01-4",
+      "profile-C01-5"
+    ]
+  },
+  {
+    "query": "Cobalt Secure Ground carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C01-1",
+      "profile-C01-2",
+      "profile-C01-3",
+      "profile-C01-4",
+      "profile-C01-5"
+    ]
+  },
+  {
+    "query": "Mesa Value Freight service profile",
+    "gold_source_ids": [
+      "profile-C02-1",
+      "profile-C02-2",
+      "profile-C02-3",
+      "profile-C02-4",
+      "profile-C02-5"
+    ]
+  },
+  {
+    "query": "Mesa Value Freight: general dry freight",
+    "gold_source_ids": [
+      "profile-C02-1",
+      "profile-C02-2",
+      "profile-C02-3",
+      "profile-C02-4",
+      "profile-C02-5"
+    ]
+  },
+  {
+    "query": "What handling does Mesa Value Freight provide?",
+    "gold_source_ids": [
+      "profile-C02-1",
+      "profile-C02-2",
+      "profile-C02-3",
+      "profile-C02-4",
+      "profile-C02-5"
+    ]
+  },
+  {
+    "query": "Mesa Value Freight pallet shipping",
+    "gold_source_ids": [
+      "profile-C02-1",
+      "profile-C02-2",
+      "profile-C02-3",
+      "profile-C02-4",
+      "profile-C02-5"
+    ]
+  },
+  {
+    "query": "Mesa Value Freight cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C02-1",
+      "profile-C02-2",
+      "profile-C02-3",
+      "profile-C02-4",
+      "profile-C02-5"
+    ]
+  },
+  {
+    "query": "Mesa Value Freight carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C02-1",
+      "profile-C02-2",
+      "profile-C02-3",
+      "profile-C02-4",
+      "profile-C02-5"
+    ]
+  },
+  {
+    "query": "Glacier Cold Chain service profile",
+    "gold_source_ids": [
+      "profile-C03-1",
+      "profile-C03-2",
+      "profile-C03-3",
+      "profile-C03-4",
+      "profile-C03-5"
+    ]
+  },
+  {
+    "query": "Glacier Cold Chain: refrigerated",
+    "gold_source_ids": [
+      "profile-C03-1",
+      "profile-C03-2",
+      "profile-C03-3",
+      "profile-C03-4",
+      "profile-C03-5"
+    ]
+  },
+  {
+    "query": "What handling does Glacier Cold Chain provide?",
+    "gold_source_ids": [
+      "profile-C03-1",
+      "profile-C03-2",
+      "profile-C03-3",
+      "profile-C03-4",
+      "profile-C03-5"
+    ]
+  },
+  {
+    "query": "Glacier Cold Chain pallet shipping",
+    "gold_source_ids": [
+      "profile-C03-1",
+      "profile-C03-2",
+      "profile-C03-3",
+      "profile-C03-4",
+      "profile-C03-5"
+    ]
+  },
+  {
+    "query": "Glacier Cold Chain cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C03-1",
+      "profile-C03-2",
+      "profile-C03-3",
+      "profile-C03-4",
+      "profile-C03-5"
+    ]
+  },
+  {
+    "query": "Glacier Cold Chain carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C03-1",
+      "profile-C03-2",
+      "profile-C03-3",
+      "profile-C03-4",
+      "profile-C03-5"
+    ]
+  },
+  {
+    "query": "Atlas Express service profile",
+    "gold_source_ids": [
+      "profile-C04-1",
+      "profile-C04-2",
+      "profile-C04-3",
+      "profile-C04-4",
+      "profile-C04-5"
+    ]
+  },
+  {
+    "query": "Atlas Express: fragile secure",
+    "gold_source_ids": [
+      "profile-C04-1",
+      "profile-C04-2",
+      "profile-C04-3",
+      "profile-C04-4",
+      "profile-C04-5"
+    ]
+  },
+  {
+    "query": "What handling does Atlas Express provide?",
+    "gold_source_ids": [
+      "profile-C04-1",
+      "profile-C04-2",
+      "profile-C04-3",
+      "profile-C04-4",
+      "profile-C04-5"
+    ]
+  },
+  {
+    "query": "Atlas Express pallet shipping",
+    "gold_source_ids": [
+      "profile-C04-1",
+      "profile-C04-2",
+      "profile-C04-3",
+      "profile-C04-4",
+      "profile-C04-5"
+    ]
+  },
+  {
+    "query": "Atlas Express cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C04-1",
+      "profile-C04-2",
+      "profile-C04-3",
+      "profile-C04-4",
+      "profile-C04-5"
+    ]
+  },
+  {
+    "query": "Atlas Express carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C04-1",
+      "profile-C04-2",
+      "profile-C04-3",
+      "profile-C04-4",
+      "profile-C04-5"
+    ]
+  },
+  {
+    "query": "Copper Industrial service profile",
+    "gold_source_ids": [
+      "profile-C05-1",
+      "profile-C05-2",
+      "profile-C05-3",
+      "profile-C05-4",
+      "profile-C05-5"
+    ]
+  },
+  {
+    "query": "Copper Industrial: hazmat",
+    "gold_source_ids": [
+      "profile-C05-1",
+      "profile-C05-2",
+      "profile-C05-3",
+      "profile-C05-4",
+      "profile-C05-5"
+    ]
+  },
+  {
+    "query": "What handling does Copper Industrial provide?",
+    "gold_source_ids": [
+      "profile-C05-1",
+      "profile-C05-2",
+      "profile-C05-3",
+      "profile-C05-4",
+      "profile-C05-5"
+    ]
+  },
+  {
+    "query": "Copper Industrial pallet shipping",
+    "gold_source_ids": [
+      "profile-C05-1",
+      "profile-C05-2",
+      "profile-C05-3",
+      "profile-C05-4",
+      "profile-C05-5"
+    ]
+  },
+  {
+    "query": "Copper Industrial cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C05-1",
+      "profile-C05-2",
+      "profile-C05-3",
+      "profile-C05-4",
+      "profile-C05-5"
+    ]
+  },
+  {
+    "query": "Copper Industrial carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C05-1",
+      "profile-C05-2",
+      "profile-C05-3",
+      "profile-C05-4",
+      "profile-C05-5"
+    ]
+  },
+  {
+    "query": "Prairie Pallet service profile",
+    "gold_source_ids": [
+      "profile-C06-1",
+      "profile-C06-2",
+      "profile-C06-3",
+      "profile-C06-4",
+      "profile-C06-5"
+    ]
+  },
+  {
+    "query": "Prairie Pallet: general dry freight",
+    "gold_source_ids": [
+      "profile-C06-1",
+      "profile-C06-2",
+      "profile-C06-3",
+      "profile-C06-4",
+      "profile-C06-5"
+    ]
+  },
+  {
+    "query": "What handling does Prairie Pallet provide?",
+    "gold_source_ids": [
+      "profile-C06-1",
+      "profile-C06-2",
+      "profile-C06-3",
+      "profile-C06-4",
+      "profile-C06-5"
+    ]
+  },
+  {
+    "query": "Prairie Pallet pallet shipping",
+    "gold_source_ids": [
+      "profile-C06-1",
+      "profile-C06-2",
+      "profile-C06-3",
+      "profile-C06-4",
+      "profile-C06-5"
+    ]
+  },
+  {
+    "query": "Prairie Pallet cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C06-1",
+      "profile-C06-2",
+      "profile-C06-3",
+      "profile-C06-4",
+      "profile-C06-5"
+    ]
+  },
+  {
+    "query": "Prairie Pallet carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C06-1",
+      "profile-C06-2",
+      "profile-C06-3",
+      "profile-C06-4",
+      "profile-C06-5"
+    ]
+  },
+  {
+    "query": "Summit Protected service profile",
+    "gold_source_ids": [
+      "profile-C07-1",
+      "profile-C07-2",
+      "profile-C07-3",
+      "profile-C07-4",
+      "profile-C07-5"
+    ]
+  },
+  {
+    "query": "Summit Protected: fragile secure refrigerated",
+    "gold_source_ids": [
+      "profile-C07-1",
+      "profile-C07-2",
+      "profile-C07-3",
+      "profile-C07-4",
+      "profile-C07-5"
+    ]
+  },
+  {
+    "query": "What handling does Summit Protected provide?",
+    "gold_source_ids": [
+      "profile-C07-1",
+      "profile-C07-2",
+      "profile-C07-3",
+      "profile-C07-4",
+      "profile-C07-5"
+    ]
+  },
+  {
+    "query": "Summit Protected pallet shipping",
+    "gold_source_ids": [
+      "profile-C07-1",
+      "profile-C07-2",
+      "profile-C07-3",
+      "profile-C07-4",
+      "profile-C07-5"
+    ]
+  },
+  {
+    "query": "Summit Protected cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C07-1",
+      "profile-C07-2",
+      "profile-C07-3",
+      "profile-C07-4",
+      "profile-C07-5"
+    ]
+  },
+  {
+    "query": "Summit Protected carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C07-1",
+      "profile-C07-2",
+      "profile-C07-3",
+      "profile-C07-4",
+      "profile-C07-5"
+    ]
+  },
+  {
+    "query": "Harbor General service profile",
+    "gold_source_ids": [
+      "profile-C08-1",
+      "profile-C08-2",
+      "profile-C08-3",
+      "profile-C08-4",
+      "profile-C08-5"
+    ]
+  },
+  {
+    "query": "Harbor General: general dry freight",
+    "gold_source_ids": [
+      "profile-C08-1",
+      "profile-C08-2",
+      "profile-C08-3",
+      "profile-C08-4",
+      "profile-C08-5"
+    ]
+  },
+  {
+    "query": "What handling does Harbor General provide?",
+    "gold_source_ids": [
+      "profile-C08-1",
+      "profile-C08-2",
+      "profile-C08-3",
+      "profile-C08-4",
+      "profile-C08-5"
+    ]
+  },
+  {
+    "query": "Harbor General pallet shipping",
+    "gold_source_ids": [
+      "profile-C08-1",
+      "profile-C08-2",
+      "profile-C08-3",
+      "profile-C08-4",
+      "profile-C08-5"
+    ]
+  },
+  {
+    "query": "Harbor General cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C08-1",
+      "profile-C08-2",
+      "profile-C08-3",
+      "profile-C08-4",
+      "profile-C08-5"
+    ]
+  },
+  {
+    "query": "Harbor General carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C08-1",
+      "profile-C08-2",
+      "profile-C08-3",
+      "profile-C08-4",
+      "profile-C08-5"
+    ]
+  },
+  {
+    "query": "Orion Regulated service profile",
+    "gold_source_ids": [
+      "profile-C09-1",
+      "profile-C09-2",
+      "profile-C09-3",
+      "profile-C09-4",
+      "profile-C09-5"
+    ]
+  },
+  {
+    "query": "Orion Regulated: hazmat secure",
+    "gold_source_ids": [
+      "profile-C09-1",
+      "profile-C09-2",
+      "profile-C09-3",
+      "profile-C09-4",
+      "profile-C09-5"
+    ]
+  },
+  {
+    "query": "What handling does Orion Regulated provide?",
+    "gold_source_ids": [
+      "profile-C09-1",
+      "profile-C09-2",
+      "profile-C09-3",
+      "profile-C09-4",
+      "profile-C09-5"
+    ]
+  },
+  {
+    "query": "Orion Regulated pallet shipping",
+    "gold_source_ids": [
+      "profile-C09-1",
+      "profile-C09-2",
+      "profile-C09-3",
+      "profile-C09-4",
+      "profile-C09-5"
+    ]
+  },
+  {
+    "query": "Orion Regulated cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C09-1",
+      "profile-C09-2",
+      "profile-C09-3",
+      "profile-C09-4",
+      "profile-C09-5"
+    ]
+  },
+  {
+    "query": "Orion Regulated carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C09-1",
+      "profile-C09-2",
+      "profile-C09-3",
+      "profile-C09-4",
+      "profile-C09-5"
+    ]
+  },
+  {
+    "query": "Juniper Care service profile",
+    "gold_source_ids": [
+      "profile-C10-1",
+      "profile-C10-2",
+      "profile-C10-3",
+      "profile-C10-4",
+      "profile-C10-5"
+    ]
+  },
+  {
+    "query": "Juniper Care: fragile",
+    "gold_source_ids": [
+      "profile-C10-1",
+      "profile-C10-2",
+      "profile-C10-3",
+      "profile-C10-4",
+      "profile-C10-5"
+    ]
+  },
+  {
+    "query": "What handling does Juniper Care provide?",
+    "gold_source_ids": [
+      "profile-C10-1",
+      "profile-C10-2",
+      "profile-C10-3",
+      "profile-C10-4",
+      "profile-C10-5"
+    ]
+  },
+  {
+    "query": "Juniper Care pallet shipping",
+    "gold_source_ids": [
+      "profile-C10-1",
+      "profile-C10-2",
+      "profile-C10-3",
+      "profile-C10-4",
+      "profile-C10-5"
+    ]
+  },
+  {
+    "query": "Juniper Care cargo eligibility guidance",
+    "gold_source_ids": [
+      "profile-C10-1",
+      "profile-C10-2",
+      "profile-C10-3",
+      "profile-C10-4",
+      "profile-C10-5"
+    ]
+  },
+  {
+    "query": "Juniper Care carrier equipment and operating restrictions",
+    "gold_source_ids": [
+      "profile-C10-1",
+      "profile-C10-2",
+      "profile-C10-3",
+      "profile-C10-4",
+      "profile-C10-5"
+    ]
+  }
+]

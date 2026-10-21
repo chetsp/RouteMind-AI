@@ -1,0 +1,1042 @@
+[
+  {
+    "message": "Ship 10 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 10
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 10 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 10
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 10 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 10
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 10 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 10
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "10 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 10
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "10 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 10
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "10 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 10
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "10 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 10
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "10 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 10
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 11 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 11
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 11 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 11
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 11 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 11
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 11 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 11
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "11 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 11
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "11 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 11
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "11 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 11
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "11 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 11
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "11 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 11
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 12 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 12
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 12 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 12
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 12 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 12
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 12 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 12
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "12 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 12
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "12 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 12
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "12 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 12
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "12 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 12
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "12 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 12
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 13 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 13
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 13 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 13
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 13 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 13
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 13 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 13
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "13 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 13
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "13 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 13
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "13 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 13
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "13 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 13
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "13 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 13
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 14 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 14
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 14 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 14
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 14 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 14
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 14 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 14
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "14 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 14
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "14 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 14
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "14 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 14
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "14 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 14
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "14 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 14
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 15 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 15
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 15 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 15
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 15 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 15
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 15 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 15
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "15 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 15
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "15 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 15
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "15 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "15 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 15
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "15 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 15
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 16 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 16
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 16 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 16
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 16 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 16
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 16 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 16
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "16 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 16
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "16 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 16
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "16 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 16
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "16 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 16
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "16 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 16
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 17 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 17
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 17 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 17
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 17 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 17
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 17 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 17
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "17 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 17
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "17 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 17
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "17 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 17
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "17 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 17
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "17 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 17
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 18 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 18
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 18 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 18
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 18 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 18
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 18 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 18
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "18 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 18
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "18 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 18
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "18 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 18
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "18 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 18
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "18 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 18
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 19 pallets from Fremont to Austin; cheapest under $4,000",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest",
+      "max_budget_cents": 400000,
+      "pallets": 19
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Find the fastest route Fremont to Austin for 19 pallets",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "fastest",
+      "pallets": 19
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Move 19 pallets of fragile electronics from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "fragile"
+      ],
+      "pallets": 19
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "Ship 19 pallets of refrigerated goods from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "refrigerated"
+      ],
+      "pallets": 19
+    },
+    "expected_status": "completed"
+  },
+  {
+    "message": "19 pallets from Fremont to Austin under $100",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_budget_cents": 10000,
+      "pallets": 19
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "19 pallets of hazmat from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "required_capabilities": [
+        "hazmat"
+      ],
+      "pallets": 19
+    },
+    "expected_status": "no_route"
+  },
+  {
+    "message": "19 pallets from Fremont to Austin tomorrow",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 19
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "19 pallets from Atlantis to Austin",
+    "expected_fields": {
+      "destination": "AUS",
+      "pallets": 19
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "Find cheapest from Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "optimization_goal": "cheapest"
+    },
+    "expected_status": "needs_clarification"
+  },
+  {
+    "message": "19 pallets Fremont to Austin direct with 99% on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "max_stops": 0,
+      "min_on_time_rate": 0.99,
+      "pallets": 19
+    },
+    "expected_status": "completed"
+  }
+]

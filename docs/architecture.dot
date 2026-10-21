@@ -1,0 +1,22 @@
+digraph RouteMind {
+  graph [rankdir=TB, bgcolor="#fafbf9", pad="0.4", nodesep="0.35", ranksep="0.5"];
+  node [shape=box, style="rounded,filled", fillcolor="#eef3ed", color="#9db9ab", fontname="DejaVu Sans", fontsize=12, margin="0.18,0.12"];
+  edge [color="#60786c", arrowsize=0.7, fontname="DejaVu Sans", fontsize=10];
+  browser [label="Browser UI"];
+  api [label="FastAPI"];
+  parse [label="Parse request\nRules or PydanticAI"];
+  validate [label="Validate constraints"];
+  clarify [label="Persist clarification"];
+  retrieve [label="Retrieve evidence\nChroma + BM25"];
+  optimize [label="Exact bounded route search"];
+  verify [label="Independent verification"];
+  explain [label="Grounded explanation\nVerified plans + source IDs"];
+  sql [label="Authoritative SQL\nSQLite / PostgreSQL", shape=cylinder, fillcolor="#e4eeeb"];
+  browser -> api -> parse -> validate;
+  validate -> clarify [label="missing / ambiguous"];
+  clarify -> parse [label="answer, same request ID"];
+  validate -> retrieve [label="valid"];
+  retrieve -> optimize -> verify -> explain;
+  sql -> validate [style=dashed];
+  sql -> optimize [style=dashed];
+}
