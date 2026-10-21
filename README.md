@@ -2,6 +2,8 @@
 
 Natural-language, multi-leg **ground freight planning** with a responsive web UI, carrier evidence retrieval and an auditable deterministic optimizer. All carriers, prices, schedules, capacities and documents are **synthetic**. No booking or capacity reservation occurs.
 
+**[View the architecture diagram and component guide](docs/architecture.md).**
+
 ## Run
 
 Python 3.12 is the tested runtime. From the repository root:
@@ -72,7 +74,7 @@ No live LLM calls were tested because no credentials are configured. The real Py
 
 ![RouteMind architecture: request parsing, clarification, retrieval, deterministic optimization and verification](docs/architecture.png)
 
-[Diagram source](docs/architecture.dot).
+[Full-size diagram](docs/architecture.png) · [Component guide](docs/architecture.md) · [Editable diagram source](docs/architecture.dot).
 
 LangGraph owns orchestration. Its persistent SQLite checkpointer saves node states using the unique request ID as `thread_id`; SQL stores externally visible results. Clarification re-enters the same thread; revisions start a new thread linked by `parent_request_id`, with the latest constraints and last verified recommendation as context. `conversation_id` is caller metadata, not an authorization key. Mid-request crashes are not automatically replayed through HTTP; completed and clarification states are restored.
 

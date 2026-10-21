@@ -1,25 +1,35 @@
 digraph RouteMind {
-  graph [rankdir=TB, bgcolor="#fafbf9", pad="0.4", nodesep="0.35", ranksep="0.5"];
-  node [shape=box, style="rounded,filled", fillcolor="#eef3ed", color="#9db9ab", fontname="DejaVu Sans", fontsize=12, margin="0.18,0.12"];
+  graph [rankdir=TB, bgcolor="#fafbf9", pad="0.35", nodesep="0.5", ranksep="0.65",
+         label="RouteMind AI | System Architecture\nSynthetic ground freight planning", labelloc=t,
+         fontname="DejaVu Sans", fontsize=21, fontcolor="#183b35"];
+  node [shape=box, style="rounded,filled", fillcolor="#eef3ed", color="#a3bdad", fontname="DejaVu Sans", fontsize=12, margin="0.18,0.15"];
   edge [color="#60786c", arrowsize=0.7, fontname="DejaVu Sans", fontsize=10];
-  browser [label="Browser UI"];
-  api [label="FastAPI"];
-  parse [label="Normalize and interpret request\nRules or context-aware PydanticAI"];
-  revision [label="Follow-up: immutable child request\nPrior constraints + verified recommendation"];
-  validate [label="Validate constraints"];
-  clarify [label="Persist clarification"];
-  retrieve [label="Semantic evidence retrieval\nChroma MiniLM + BM25"];
-  optimize [label="Exact bounded route search"];
-  verify [label="Independent verification"];
-  suggestions [label="Verified what-if options\nRe-run optimizer with one explicit change"];
-  explain [label="Grounded explanation\nVerified plans + source IDs"];
-  sql [label="Authoritative SQL\nSQLite / PostgreSQL", shape=cylinder, fillcolor="#e4eeeb"];
-  browser -> api -> parse -> validate;
-  api -> revision -> parse;
-  validate -> clarify [label="missing / ambiguous"];
-  clarify -> parse [label="answer, same request ID"];
-  validate -> retrieve [label="valid"];
-  retrieve -> optimize -> verify -> suggestions -> explain;
-  sql -> validate [style=dashed];
-  sql -> optimize [style=dashed];
+
+  browser [label="BROWSER UI\nShipment requests and follow-ups\nRoute comparisons and cited evidence"];
+  api [label="FASTAPI\nCreate · Clarify · Revise · Read\nTyped validation and request limits"];
+  context [label="CONVERSATION CONTEXT\nPrevious constraints + verified recommendation\nRevisions create immutable child requests", fillcolor="#fbf0dc", color="#dbc497"];
+  llm [label="OPTIONAL OPENAI MODEL\nPydanticAI typed extraction\nRuntime API key required", fillcolor="#eaf0f7", color="#a9bdd2"];
+  workflow [label="LANGGRAPH WORKFLOW\n\n1  Normalize and interpret language\n2  Validate / clarify constraints\n3  Retrieve carrier evidence\n4  Enumerate feasible scheduled paths\n5  Independently verify every plan\n6  Explain, cite and compare results", fillcolor="#dbece1", color="#60947b", penwidth=2];
+  chroma [label="CHROMADB VECTOR STORE\n58 versioned synthetic documents\nMiniLM semantic search + BM25", shape=cylinder, fillcolor="#e4eeeb"];
+  sql [label="POSTGRESQL / SQLITE\nSchedules, prices, capacity, hubs\nCarrier capabilities + request results\nAuthoritative source for feasibility", shape=cylinder, fillcolor="#e4eeeb"];
+  model [label="LOCAL ONNX MINILM\nChecksum-verified model weights\nCached in Docker; explicit hash fallback"];
+  checkpoints [label="SQLITE GRAPH CHECKPOINTS\nNode snapshots and request threads\nClarification and restart recovery", shape=cylinder, fillcolor="#e4eeeb"];
+  whatif [label="VERIFIED WHAT-IF OPTIONS\nRe-run optimizer with one explicit change\nUser chooses whether to apply", fillcolor="#fbf0dc", color="#dbc497"];
+  result [label="VERIFIED RESPONSE\nUp to 3 ranked plans + cost breakdown\nChanged constraints, comparisons, citations\nNo live quotes, booking or reservation"];
+
+  {rank=same; llm; api; context;}
+  {rank=same; chroma; workflow; sql;}
+  {rank=same; model; whatif; checkpoints;}
+  browser -> api [label="request"];
+  api -> workflow;
+  api -> context [label="follow-up"];
+  context -> workflow [label="saved context"];
+  llm -> workflow [label="optional extraction", style=dashed];
+  chroma -> workflow [label="evidence only", style=dashed];
+  sql -> workflow [label="verified facts", style=dashed];
+  workflow -> checkpoints [label="persist snapshots", style=dashed];
+  chroma -> model [label="embedding vectors", dir=both, style=dashed];
+  workflow -> whatif [label="proof search"];
+  whatif -> result [label="suggestions"];
+  workflow -> result [label="validated plans"];
 }
