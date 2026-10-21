@@ -14,6 +14,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 from langgraph.checkpoint.sqlite import SqliteSaver
+from app.explorer import router as explorer_router
 from app.database import Database
 from app.rag import Retriever
 from app.schemas import PlanInput, Clarification
@@ -172,6 +173,12 @@ def create_app(database_url=None):
     @app.get("/", include_in_schema=False)
     def index():
         return FileResponse(STATIC / "index.html")
+
+    app.include_router(explorer_router)
+
+    @app.get("/explorer", include_in_schema=False)
+    def explorer():
+        return FileResponse(STATIC / "explorer.html")
 
     app.mount("/static", StaticFiles(directory=STATIC), name="static")
     return app

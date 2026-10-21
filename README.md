@@ -147,3 +147,9 @@ The suite includes 20 random tiny networks checked against an independent exhaus
 This is a local, single-worker MVP with a 16 KiB POST limit, typed validation, in-process per-IP write limits, CORS allowlists, parameterized SQL and redacted HTTP errors. It has no accounts, tenant isolation, production migrations, distributed limiting or real carrier integrations. Keep real shipment data out of the shared demo. SQL retains messages/results; browser storage keeps only the last request ID. Retention management is a deployment concern.
 
 Advanced cross-encoder/Ragas experiments, real-world labeled data, live LLM quality evaluation and public deployment are deferred. The delivered scope prioritizes a working, testable planner without paid model access.
+
+### Read-only data explorer
+
+Open **Data explorer** in the web UI sidebar (or visit `/explorer`). Browse hubs, carriers, capabilities, schedules, SQL evidence documents and the active ChromaDB collection. Search all fields, page through records and open **View** for complete document text or stored vector dimensions, norm and embedding values. Prices use US cents and timestamps use UTC. All reference data is synthetic; shipment conversations are excluded.
+
+Explorer APIs accept GET only: `/api/v1/explorer` (counts and active model), `/api/v1/explorer/tables/{name}`, `/api/v1/explorer/vectors`, and `/api/v1/explorer/vectors/{source_id}`. Listings support literal `q`, `limit` (1–100), and `offset` parameters. The vector browser reads the active persisted Chroma index; it does not perform semantic retrieval or require a separate Chroma installation.

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>RouteMind AI · Data explorer</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/explorer.css"><script src="/static/explorer.js" defer></script></head>
+<body>
+<aside class="sidebar"><a class="brand" href="/"><span class="brand-mark">R→</span> RouteMind <b>AI</b></a><div class="workspace-label">PLANNING WORKSPACE</div><a class="nav-item" href="/">→ &nbsp; Shipment planner</a><a class="nav-item" href="/explorer" aria-current="page">▦ &nbsp; Data explorer</a><div class="sidebar-bottom">Reference data · Read only</div></aside>
+<main>
+<header><span>NETWORK INTELLIGENCE / DATA EXPLORER</span><span class="demo-badge">SYNTHETIC DEMO</span></header>
+<h1>See the data behind a route.</h1><p>Browse transportation records and the evidence stored in ChromaDB. All data is synthetic. Prices are stored in US cents; timestamps use UTC.</p>
+<p class="notice">Read only · SQL records determine feasibility and pricing. Vector evidence provides supporting context. Shipment conversations are excluded.</p>
+<div id="summary" class="summary" aria-live="polite">Loading data…</div>
+<section class="explorer-panel">
+<form id="browse"><div><label for="dataset">DATASET</label><select id="dataset"><option value="hubs">Hubs</option><option value="carriers">Carriers</option><option value="capabilities">Carrier capabilities</option><option value="schedules">Schedules</option><option value="documents">Evidence documents (SQL)</option><option value="vectors">Vector index (ChromaDB)</option></select></div><div><label for="search">SEARCH ALL FIELDS</label><input id="search" maxlength="200" placeholder="Hub, carrier, document text…" type="search"></div><button class="primary" type="submit">Search</button></form>
+<p id="source" class="hint"></p><p id="status" role="status" aria-live="polite"></p><p id="error" role="alert" class="error" hidden></p>
+<div class="table-scroll" tabindex="0" aria-label="Data records"><table><thead id="columns"></thead><tbody id="rows"></tbody></table></div>
+<div class="pagination"><button id="previous" type="button">← Previous</button><span id="page"></span><button id="next" type="button">Next →</button></div>
+</section>
+<section id="detail" class="explorer-panel" hidden><div class="detail-heading"><h2>Record details</h2><button id="close-detail" type="button">Close</button></div><p id="vector-info"></p><pre id="record"></pre><details id="embedding-panel" hidden><summary>Full stored embedding</summary><pre id="embedding"></pre></details></section>
+<footer><span>ROUTEMIND AI</span><span>Language interprets. Data verifies. The optimizer decides.</span></footer>
+</main></body></html>
