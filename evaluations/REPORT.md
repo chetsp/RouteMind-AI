@@ -4,7 +4,7 @@ Measured on Python 3.12 with SQLite, persistent LangGraph checkpoints and the of
 
 ## Correctness and conversation
 
-- Full suite with actual MiniLM integration enabled: 65 passed independently on SQLite and PostgreSQL. Normal test runs skip the opt-in real-weight test.
+- With Gemini provider support added, 72 tests pass independently on SQLite and PostgreSQL with actual MiniLM integration enabled. Gemini extraction itself is tested with simulated model responses; no live Gemini key is configured. Normal test runs skip the opt-in real-weight test.
 - Opt-in actual MiniLM tests passed, including a semantic paraphrase similarity check and real Chroma retrieval.
 - 20 randomized tiny networks matched an independent exhaustive oracle for both objectives.
 - 100/100 planning fixtures matched expected fields and final statuses; 110 returned routes passed independent verification.

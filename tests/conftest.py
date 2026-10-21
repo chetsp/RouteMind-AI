@@ -11,6 +11,7 @@ def client(tmp_path_factory):
         env.setenv("DATA_DIR", str(data))
         env.setenv("EMBEDDING_BACKEND", "hash")
         env.delenv("ROUTEMIND_MODEL", raising=False)
+        env.delenv('ROUTEMIND_PROVIDER',raising=False)
         with TestClient(create_app(os.getenv("TEST_DATABASE_URL"))) as c:
             yield c
 

@@ -8,7 +8,7 @@ digraph RouteMind {
   browser [label="BROWSER UI\nShipment requests and follow-ups\nRoute comparisons and cited evidence"];
   api [label="FASTAPI\nCreate · Clarify · Revise · Read\nTyped validation and request limits"];
   context [label="CONVERSATION CONTEXT\nPrevious constraints + verified recommendation\nRevisions create immutable child requests", fillcolor="#fbf0dc", color="#dbc497"];
-  llm [label="OPTIONAL OPENAI MODEL\nPydanticAI typed extraction\nRuntime API key required", fillcolor="#eaf0f7", color="#a9bdd2"];
+  llm [label="OPTIONAL GEMINI / OPENAI\nPydanticAI typed extraction\nProvider-specific runtime API key", fillcolor="#eaf0f7", color="#a9bdd2"];
   workflow [label="LANGGRAPH WORKFLOW\n\n1  Normalize and interpret language\n2  Validate / clarify constraints\n3  Retrieve carrier evidence\n4  Enumerate feasible scheduled paths\n5  Independently verify every plan\n6  Explain, cite and compare results", fillcolor="#dbece1", color="#60947b", penwidth=2];
   chroma [label="CHROMADB VECTOR STORE\n58 versioned synthetic documents\nMiniLM semantic search + BM25", shape=cylinder, fillcolor="#e4eeeb"];
   sql [label="POSTGRESQL / SQLITE\nSchedules, prices, capacity, hubs\nCarrier capabilities + request results\nAuthoritative source for feasibility", shape=cylinder, fillcolor="#e4eeeb"];

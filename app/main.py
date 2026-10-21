@@ -19,6 +19,7 @@ from app.rag import Retriever
 from app.schemas import PlanInput, Clarification
 from app.seed import seed, SCENARIO_START
 from app.workflow import build_workflow
+from app.parser import llm_configuration
 
 log = logging.getLogger("routemind")
 STATIC = Path(__file__).parent / "static"
@@ -105,11 +106,13 @@ def create_app(database_url=None):
         with app.state.db.engine.connect() as conn:
             conn.execute(text("SELECT 1"))
         count = app.state.retriever.collection.count()
+        llm = llm_configuration()
         return {"status": "ok", "database": app.state.db.engine.dialect.name, "evidence_documents": count,
             "embedding_model": app.state.retriever.model_version, "parser": "pydantic-ai" if os.getenv("ROUTEMIND_MODEL") else "demo-rules-v1",
             "data_type": "synthetic", "scenario_start": SCENARIO_START,
             'embedding_backend':app.state.retriever.backend,'retrieval_warning':app.state.retriever.warning,
-            'llm_configured':bool(os.getenv('ROUTEMIND_MODEL') and os.getenv('ROUTEMIND_API_KEY'))}
+            'llm_configured':llm['configured'],'llm_provider':llm['provider'] if llm['model'] else None,
+            'llm_configuration_error':llm['configuration_error']}
 
     @app.get("/api/v1/hubs")
     def get_hubs():

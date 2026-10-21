@@ -21,12 +21,12 @@
 
 ## Important boundaries
 
-- The optional OpenAI model interprets language. It does not decide prices, capacity, schedules or carrier eligibility.
+- The optional Gemini or OpenAI model interprets language. It does not decide prices, capacity, schedules or carrier eligibility. The selected provider receives only its own configured key.
 - Retrieved prose provides cited context. SQL capability flags and schedule records decide feasibility.
 - Relative comparisons use saved, verified recommendations; the model does not invent reference costs or arrival times.
 - Clarification resumes the same request. A revision creates a new request linked to its parent, preserving the earlier result.
 - Docker runs PostgreSQL separately from the API. ChromaDB, local model weights and graph checkpoints are embedded in the application container; persistent volumes retain changing data. Native development can use SQLite instead of PostgreSQL.
-- MiniLM weights are verified and cached during Docker build. Optional paid language interpretation requires a runtime API key. No live freight integrations or booking actions exist.
+- MiniLM weights are verified and cached during Docker build. Optional hosted language interpretation requires a provider-specific runtime API key. No live freight integrations or booking actions exist.
 
 ## Update the diagram
 

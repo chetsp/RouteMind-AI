@@ -57,18 +57,34 @@ See [deployment notes](docs/deployment.md) for restricted Docker builders and op
 
 | Component | Default: no credentials | Optional model-backed mode |
 |---|---|---|
-| Parsing | Quantity/currency normalization + conservative rules, `demo-rules-v1` | Context-aware PydanticAI typed extraction with OpenAI |
+| Parsing | Quantity/currency normalization + conservative rules, `demo-rules-v1` | Context-aware PydanticAI typed extraction with Gemini or OpenAI |
 | Chroma embeddings | Learned all-MiniLM-L6-v2 ONNX embeddings; explicit hash fallback if unavailable | Strict MiniLM or a revision-pinned SentenceTransformer |
 | Retrieval | Learned semantic similarity + BM25 reciprocal-rank fusion | Dense, BM25 and reranked modes available for evaluation |
 | Explanation | Deterministic text from verified plans and actual citation IDs | Kept deterministic to prevent invented numerical claims |
 
 The default language parser is a limited demo, not unrestricted language understanding. It now supports spelled quantities, dozens, currency shorthand, comparative revisions and explicit constraint removal in addition to hub aliases, objectives, stops, reliability and timezone-aware ISO timestamps. Cargo mappings cover fragile/delicate/electronics, secure/high-value, refrigerated/cold-chain/chilled, and hazmat/hazardous materials. Use structured fields for unsupported phrasings. SQL eligibility remains authoritative.
 
-For broader language understanding, securely export `ROUTEMIND_API_KEY`, set `ROUTEMIND_MODEL` to an OpenAI model supporting structured tools (e.g. `gpt-4.1-mini`), and restart. Never commit credentials. Native startup does not read `.env` automatically: export variables or use Uvicorn's `--env-file .env`. Compose reads `.env` for its declared settings. Model failures produce a visible warning and fall back to the limited parser. The UI always identifies the parser used. Calls have bounded retries and timeouts.
+For broader language understanding, choose Gemini or OpenAI. Both use the same typed extraction contract, previous-plan context, validation and deterministic optimizer. Never commit credentials. Native startup does not read `.env` automatically: export variables or use Uvicorn's `--env-file .env`. Compose reads `.env` for its declared settings. Model failures produce a visible warning and fall back to the limited parser. The UI identifies the parser used; `/health` reports provider and whether its key is configured, never its value. Calls have bounded retries and timeouts.
+
+### Enable Gemini on your Mac
+
+Copy `.env.example` to `.env` (or edit your existing `.env`) and set:
+
+```dotenv
+ROUTEMIND_PROVIDER=gemini
+ROUTEMIND_MODEL=gemini-2.5-flash
+GEMINI_API_KEY=your-key-here
+```
+
+Obtain your key from [Google AI Studio](https://aistudio.google.com/apikey). Keep it locally; do not paste it into chat. The model name is an example: select a currently available Gemini model supporting function calling in your account. Quotas and pricing depend on your Google account and model. `google` is accepted as a provider alias; a plain `gemini-...` model name also infers the Gemini provider when no provider is set.
+
+After downloading the updated code, run `docker compose up --build -d`. Later key/model changes need only `docker compose up -d --force-recreate api`. Successful requests display `pydantic-ai:gemini:<model-name>`; a warning and demo parser label mean extraction fell back.
+
+For OpenAI instead, set `ROUTEMIND_PROVIDER=openai`, `ROUTEMIND_MODEL=gpt-4.1-mini`, and `ROUTEMIND_API_KEY` to your OpenAI key. Keep only the intended provider/model combination active; keys are never shared between providers.
 
 Default `EMBEDDING_BACKEND=auto` prefers the SHA256-verified Chroma MiniLM model. Docker retains it under `/opt/routemind-models`; native startup uses `DATA_DIR/models`, or `MODEL_CACHE_DIR` if set. If loading fails, auto mode explicitly reports hash-vector fallback in `/health` and the UI. Set `EMBEDDING_BACKEND=minilm` for strict semantic mode (startup fails if unavailable), or `hash` for the offline baseline. Real MiniLM retrieval has been validated. Alternatively install `.[semantic]` and configure `sentence-transformers`, `EMBEDDING_MODEL` and an exact reviewed `EMBEDDING_REVISION`. Collections are separated by embedding version, so upgrading preserves old stored data while building a compatible index.
 
-No live LLM calls were tested because no credentials are configured. The real PydanticAI typed-output and conversation-context paths are tested using `TestModel` and `FunctionModel`. No live-model quality or token-cost claim is made. To enable it with Docker on your Mac, copy `.env.example` to `.env`, set `ROUTEMIND_MODEL=gpt-4.1-mini` and enter your key in `ROUTEMIND_API_KEY` locally, then run `docker compose up -d --force-recreate api`. Never share the key in chat or Git.
+No live LLM calls were tested because no credentials are configured. Both provider-selection paths, typed outputs and conversation context are tested using PydanticAI test models. No live-model quality or token-cost claim is made. The demo and local semantic embeddings need no paid LLM key.
 
 ## Architecture and correctness
 
