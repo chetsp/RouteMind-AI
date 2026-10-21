@@ -107,7 +107,9 @@ def create_app(database_url=None):
         count = app.state.retriever.collection.count()
         return {"status": "ok", "database": app.state.db.engine.dialect.name, "evidence_documents": count,
             "embedding_model": app.state.retriever.model_version, "parser": "pydantic-ai" if os.getenv("ROUTEMIND_MODEL") else "demo-rules-v1",
-            "data_type": "synthetic", "scenario_start": SCENARIO_START}
+            "data_type": "synthetic", "scenario_start": SCENARIO_START,
+            'embedding_backend':app.state.retriever.backend,'retrieval_warning':app.state.retriever.warning,
+            'llm_configured':bool(os.getenv('ROUTEMIND_MODEL') and os.getenv('ROUTEMIND_API_KEY'))}
 
     @app.get("/api/v1/hubs")
     def get_hubs():
@@ -130,10 +132,29 @@ def create_app(database_url=None):
             state = load(request_id)
             if state["status"] != "needs_clarification":
                 raise HTTPException(409, "Only requests awaiting clarification can be resumed; submit a new plan to change a completed request")
-            if len(state["messages"]) >= 10:
+            if state.get('clarification_count',0) >= 10 or len(state['messages']) >= 30:
                 raise HTTPException(409, "Clarification limit reached. Start a new request with structured constraints.")
             state.update(message=body.message, messages=state["messages"] + [body.message],
+                clarification_count=state.get('clarification_count',0)+1,
                 overrides=body.constraints.model_dump(mode="json", exclude_unset=True) if body.constraints else {}, plans=[], evidence=[], recommended_plan=None)
+            return execute(state)
+
+    @app.post('/api/v1/plans/{request_id}/revise')
+    def revise(request_id: str, body: Clarification):
+        """Create an immutable child plan; the previous recommendation is its reference."""
+        with mutation_lock:
+            parent=load(request_id)
+            if parent['status'] not in {'completed','no_route'}:
+                raise HTTPException(409,'Answer pending clarifications before revising this request')
+            if len(parent['messages']) >= 30:
+                raise HTTPException(409,'Conversation limit reached. Start a new request.')
+            state={'request_id':str(uuid.uuid4()),'parent_request_id':request_id,
+                'conversation_id':parent.get('conversation_id') or parent['request_id'],
+                'message':body.message,'messages':parent['messages']+[body.message],
+                'constraints':parent['constraints'], 'baseline_plan':parent.get('recommended_plan') or parent.get('baseline_plan'),
+                'overrides':body.constraints.model_dump(mode='json',exclude_unset=True) if body.constraints else {},
+                'plans':[],'recommended_plan':None,'comparison':None,'suggestions':[],
+                'evidence':[],'warnings':[],'trace':[],'data_type':'synthetic','status':'planning'}
             return execute(state)
 
     @app.get("/api/v1/plans/{request_id}")

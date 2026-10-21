@@ -1,0 +1,61 @@
+{
+  "dataset": "synthetic handcrafted/template regression fixtures v1",
+  "limitations": [
+    "Not a held-out human-labeled dataset. Related templates and near-duplicate profiles make retrieval scores optimistic.",
+    "Demo parser results do not measure an LLM. Reranker is token coverage, not a cross-encoder.",
+    "No Ragas/human grounding evaluation or production accuracy claim."
+  ],
+  "embedding_model": "normalized-feature-hash-v1-384",
+  "retrieval": {
+    "dense": {
+      "queries": 60,
+      "recall_at_5": 0.9233,
+      "mrr": 0.9267,
+      "ndcg_at_5": 0.921
+    },
+    "bm25": {
+      "queries": 60,
+      "recall_at_5": 0.9667,
+      "mrr": 0.9667,
+      "ndcg_at_5": 0.9667
+    },
+    "hybrid": {
+      "queries": 60,
+      "recall_at_5": 0.94,
+      "mrr": 0.9833,
+      "ndcg_at_5": 0.9499
+    },
+    "reranked": {
+      "queries": 60,
+      "recall_at_5": 0.9367,
+      "mrr": 0.9667,
+      "ndcg_at_5": 0.9436
+    }
+  },
+  "planning": {
+    "requests": 100,
+    "parser_expected_field_matches": 100,
+    "expected_status_matches": 100,
+    "completed_requests": 50,
+    "returned_routes_independently_verified": 110,
+    "workflow_p50_ms": 48.43,
+    "workflow_p95_ms": 84.15
+  },
+  "nlp": {
+    "manually_specified_paraphrases": 16,
+    "exact_patch_matches": 16,
+    "clarification_decisions_correct": 16,
+    "mode": "offline normalization + rules; not LLM entity F1"
+  },
+  "conversation": {
+    "real_api_turns": 2,
+    "unchanged_budget_preserved": true,
+    "verified_cost_delta_cents": 130000
+  },
+  "http": {
+    "samples": 12,
+    "p50_ms": 122.58,
+    "p95_ms": 195.19,
+    "transport": "in-process ASGI TestClient; includes SQL persistence, excludes real network"
+  }
+}

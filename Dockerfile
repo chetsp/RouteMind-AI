@@ -1,10 +1,14 @@
 FROM python:3.12-slim
 WORKDIR /app
-ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 DATA_DIR=/app/.data
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 DATA_DIR=/app/.data MODEL_CACHE_DIR=/opt/routemind-models EMBEDDING_BACKEND=auto
 COPY requirements.lock ./
 RUN --mount=type=secret,id=pip_ca_bundle \
     if [ -f /run/secrets/pip_ca_bundle ]; then export PIP_CERT=/run/secrets/pip_ca_bundle; fi; \
     pip install --no-cache-dir -r requirements.lock
+COPY scripts/cache_embeddings.py /tmp/cache_embeddings.py
+RUN --mount=type=secret,id=pip_ca_bundle \
+    if [ -f /run/secrets/pip_ca_bundle ]; then export SSL_CERT_FILE=/run/secrets/pip_ca_bundle; fi; \
+    python /tmp/cache_embeddings.py && chmod -R a+rX /opt/routemind-models
 COPY pyproject.toml README.md ./
 COPY app ./app
 RUN chmod -R a+rX /app/app && useradd --create-home --uid 10001 planner && mkdir -p /app/.data && chown planner:planner /app/.data

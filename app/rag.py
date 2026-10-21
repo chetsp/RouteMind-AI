@@ -37,8 +37,10 @@ class Retriever:
         self.onnx = None
         model = os.getenv("EMBEDDING_MODEL")
         revision = os.getenv("EMBEDDING_REVISION")
-        backend = os.getenv("EMBEDDING_BACKEND", "hash")
-        if backend not in {"minilm", "hash", "sentence-transformers"}:
+        backend = os.getenv("EMBEDDING_BACKEND", "auto")
+        self.requested_backend = backend
+        self.warning = None
+        if backend not in {"auto", "minilm", "hash", "sentence-transformers"}:
             raise ValueError("Unknown EMBEDDING_BACKEND")
         if backend == "sentence-transformers":
             if not model:
@@ -47,12 +49,19 @@ class Retriever:
                 raise ValueError("Pin EMBEDDING_REVISION when selecting a learned model")
             from sentence_transformers import SentenceTransformer
             self.encoder = SentenceTransformer(model, revision=revision, trust_remote_code=False)
-        elif backend == "minilm":
+        elif backend in {"auto", "minilm"}:
             from chromadb.utils.embedding_functions import ONNXMiniLM_L6_V2
             self.onnx = ONNXMiniLM_L6_V2(preferred_providers=["CPUExecutionProvider"])
             # Keep model artifacts within retained application data, with Chroma's
             # built-in SHA256 verification unchanged.
-            self.onnx.DOWNLOAD_PATH = Path(os.getenv("DATA_DIR", ".data")) / "models" / "all-MiniLM-L6-v2"
+            self.onnx.DOWNLOAD_PATH = Path(os.getenv('MODEL_CACHE_DIR',str(Path(os.getenv("DATA_DIR", ".data")) / "models"))) / "all-MiniLM-L6-v2"
+            try:
+                self.embed(['cargo handling'])
+            except Exception:
+                if backend != 'auto': raise
+                self.onnx = None
+                self.warning = 'Learned MiniLM embeddings could not load. Offline hash vectors are active; semantic retrieval is unavailable. Select minilm for strict startup or check model-download access.'
+        self.backend = 'sentence-transformers' if self.encoder else 'minilm' if self.onnx else 'hash'
         self.model_version = (f"{model}@{revision}" if self.encoder else
             "chroma-onnx-all-MiniLM-L6-v2-" + self.onnx._MODEL_SHA256[:12] if self.onnx else "normalized-feature-hash-v1-384")
         path = Path(os.getenv("DATA_DIR", ".data")) / "chroma"

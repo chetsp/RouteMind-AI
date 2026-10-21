@@ -19,6 +19,8 @@ class Constraints(BaseModel):
     min_on_time_rate: float | None = Field(default=None, ge=0, le=1)
     required_capabilities: list[str] = Field(default_factory=list, max_length=4)
     minimal_handling: bool = False
+    prefer_direct: bool = False
+    transfer_savings_threshold_cents: int | None = Field(default=None, ge=0)
 
     @field_validator("ready_at", "delivery_deadline")
     @classmethod

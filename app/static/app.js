@@ -1,5 +1,5 @@
 const $ = id => document.getElementById(id);
-let requestId = null, hubMap = {}, waiting = false;
+let requestId = null, hubMap = {}, waiting = false, currentState = null, activeEmbedding = '';
 const examples = {
   cheapest: 'Ship 15 pallets of fragile electronics from Fremont to Austin under $4,000. Find the cheapest route.',
   fastest: 'Find the fastest route for 15 pallets from Fremont to Austin under $4,000 with 97% on-time reliability.',
@@ -28,12 +28,15 @@ async function api(path, options) {
 }
 function reset() {
   requestId = null; waiting = false;
+  currentState = null;
+  $('followup-panel').hidden = true;
   localStorage.removeItem('routemind-request');
   $('new-request').hidden = true;
   $('submit').replaceChildren(node('span', 'Find feasible routes'), node('span', '→'));
   $('message').placeholder = 'Describe your shipment…';
 }
 function render(state) {
+  currentState = state;
   requestId = state.request_id;
   localStorage.setItem('routemind-request', requestId);
   waiting = state.status === 'needs_clarification';
@@ -41,7 +44,10 @@ function render(state) {
   $('new-request').hidden = false;
   $('result-count').textContent = state.status === 'completed' ? `${state.plans.length} validated options` : state.status.replaceAll('_',' ');
   $('parser-mode').textContent = `Parser: ${state.parser_mode || 'unavailable'} · Synthetic data`;
-  if (!waiting) $('message').value = (state.messages || []).filter(Boolean).join('\n');
+  if (!waiting) $('message').value = (state.messages || [])[0] || '';
+  $('followup-panel').hidden = !['completed','no_route'].includes(state.status);
+  $('followup').value = '';
+  $('history-list').replaceChildren(...(state.messages || []).filter(Boolean).map(m => node('li',m)));
   $('submit').replaceChildren(node('span', waiting ? 'Submit clarification' : 'Find feasible routes'), node('span','→'));
   if (waiting) {
     const card = node('div', undefined, 'card clarification');
@@ -86,6 +92,33 @@ function render(state) {
     const explanation = node('div',undefined,'explanation');
     explanation.append(node('h3','Why this route'), node('div',state.explanation)); area.append(explanation);
   }
+  const understood = node('section',undefined,'understood');
+  understood.append(node('h3','What I understood'));
+  const c = state.constraints || {};
+  const summary = `${c.pallets || '?'} pallets · ${hubMap[c.origin]?.name || c.origin || '?'} → ${hubMap[c.destination]?.name || c.destination || '?'} · ${c.optimization_goal || 'cheapest'}`;
+  understood.append(node('p',summary),node('p',`Budget: ${c.max_budget_cents == null ? 'No ceiling' : money(c.max_budget_cents)} · Cargo: ${(c.required_capabilities || []).join(', ') || 'general freight'} · Max stops: ${c.max_stops ?? 2}`));
+  if(c.prefer_direct) understood.append(node('p',c.transfer_savings_threshold_cents == null?'Direct preferred only when the primary objective ties.':`Prefer direct unless a transfer saves at least ${money(c.transfer_savings_threshold_cents)}.`));
+  if(state.parent_request_id && state.interpretation?.changes){
+    const changeList = node('ul');
+    Object.entries(state.interpretation.changes).forEach(([field,change]) => {
+      const display = value => field.endsWith('_cents') && value != null ? money(value) : Array.isArray(value)?value.join(', '):String(value ?? 'none');
+      changeList.append(node('li',`${field.replaceAll('_',' ')}: ${display(change.before)} → ${display(change.after)}`));
+    }); understood.append(changeList);
+  }
+  (state.interpretation?.assumptions || []).forEach(a=>understood.append(node('p',a,'hint')));
+  if(state.comparison){
+    const delta=state.comparison;
+    understood.append(node('p',`Versus the last verified recommendation: ${delta.cost_delta_cents < 0 ? 'saves' : 'costs'} ${money(Math.abs(delta.cost_delta_cents))}${delta.cost_delta_cents >= 0 ? ' more' : ''}; arrival ${Math.abs(delta.arrival_delta_minutes/60).toFixed(1)} hours ${delta.arrival_delta_minutes <= 0 ? 'earlier' : 'later'}.`,'comparison'));
+  }
+  area.prepend(understood);
+  if(state.suggestions?.length){
+    const options=node('section',undefined,'suggestions');options.append(node('h3','Verified what-if options'));
+    state.suggestions.forEach(s=>{
+      const option=node('div',undefined,'suggestion');
+      const apply=node('button','Try this change');apply.type='button';apply.addEventListener('click',()=>runRevision({message:'',constraints:s.changes}));
+      option.append(node('p',s.summary),apply);options.append(option);
+    });area.append(options);
+  }
   (state.warnings || []).forEach(w => area.append(node('div',w,'warning')));
   if (state.evidence?.length) {
     const evidence = node('details',undefined,'evidence');
@@ -95,15 +128,30 @@ function render(state) {
       source.append(node('code',`${e.source_id} · v${e.version} · ${e.document_type} · SYNTHETIC`),node('p',e.text),node('small',`${e.retrieval_method} · ${e.embedding_version}`));
       evidence.append(source);
     }); area.append(evidence);
+    (state.cargo_interpretation || []).forEach(cargo => {
+      evidence.append(node('p',`${cargo.capability}: ${cargo.policy} Evidence IDs: ${cargo.source_ids.join(', ') || 'no matching passage; SQL flags remain authoritative'}`,'hint'));
+    });
   }
   const diagnostics = node('details',undefined,'diagnostics');
-  diagnostics.append(node('summary','Constraints & audit trail'),node('pre',JSON.stringify({constraints:state.constraints,rejected_transitions:state.rejection_counts,feasible_paths:state.feasible_route_count,workflow:state.trace?.map(t=>t.node),latency_ms:state.latency_ms},null,2)));
+  diagnostics.append(node('summary','Constraints & audit trail'),node('pre',JSON.stringify({constraints:state.constraints,interpretation:state.interpretation,parent_request_id:state.parent_request_id,comparison:state.comparison,rejected_transitions:state.rejection_counts,feasible_paths:state.feasible_route_count,workflow:state.trace?.map(t=>t.node),latency_ms:state.latency_ms},null,2)));
   area.append(diagnostics,node('p',`Request ${state.request_id} · Persisted locally on the server`,'request-meta'));
 }
 document.querySelectorAll('[data-example]').forEach(button => button.addEventListener('click', () => {
   reset(); $('planner').reset(); $('message').value=examples[button.dataset.example]; $('error').hidden=true;
 }));
 $('new-request').addEventListener('click',()=>{ reset(); $('planner').reset(); $('message').focus(); });
+document.querySelectorAll('[data-followup]').forEach(button=>button.addEventListener('click',()=>{
+  $('followup').value=button.dataset.followup;$('followup').focus();
+}));
+async function runRevision(body){
+  if(!requestId || !currentState || waiting) return;
+  $('error').hidden=true;
+  const controls=Array.from(document.querySelectorAll('button'));controls.forEach(b=>b.disabled=true);
+  try{render(await api(`/api/v1/plans/${requestId}/revise`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}));}
+  catch(error){$('error').textContent=error.message;$('error').hidden=false;}
+  finally{controls.forEach(b=>b.disabled=false);}
+}
+$('followup-form').addEventListener('submit',event=>{event.preventDefault();runRevision({message:$('followup').value});});
 $('planner').addEventListener('submit',async event=>{
   event.preventDefault(); $('error').hidden=true;
   const c={};
@@ -128,6 +176,8 @@ async function init(){
     for(const id of ['origin','destination']) hubs.forEach(h=>{const option=node('option',h.name);option.value=h.id;$(id).append(option);});
     $('connection').textContent=`${hubs.length} hubs · Network ready`;
     $('parser-mode').textContent=`Parser: ${health.parser} · ${health.evidence_documents} evidence passages`;
+    activeEmbedding=health.embedding_model;
+    $('retrieval-mode').textContent=`Retrieval: ${health.embedding_backend === 'minilm' ? 'Semantic MiniLM + BM25' : health.embedding_backend === 'hash' ? 'Offline hash vectors + BM25' : activeEmbedding}${health.retrieval_warning ? ' · '+health.retrieval_warning : ''}`;
     const saved=localStorage.getItem('routemind-request');
     if(saved) {try{render(await api(`/api/v1/plans/${saved}`));}catch{localStorage.removeItem('routemind-request');}}
   }catch(error){$('connection').textContent='Network unavailable';$('error').textContent=error.message;$('error').hidden=false;}

@@ -58,6 +58,19 @@ def search(network, c: Constraints):
             primary = (primary[0], p["leg_count"], primary[1])
         return (*primary, p["plan_id"])
     solutions.sort(key=key)
+    if c.prefer_direct and solutions:
+        direct = [p for p in solutions if p['leg_count']==1]
+        if direct:
+            preferred = direct[0]
+            if c.optimization_goal == 'cheapest':
+                savings = preferred['total_cost_cents']-solutions[0]['total_cost_cents']
+                threshold = c.transfer_savings_threshold_cents
+                use_direct = savings == 0 or (threshold is not None and savings < threshold)
+            else:
+                use_direct = preferred['arrival_at']==solutions[0]['arrival_at']
+            if use_direct:
+                solutions.remove(preferred)
+                solutions.insert(0,preferred)
     return solutions[:3], dict(rejected), len(solutions)
 
 

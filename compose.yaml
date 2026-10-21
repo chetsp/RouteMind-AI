@@ -21,7 +21,7 @@ services:
       DATA_DIR: /app/.data
       ROUTEMIND_MODEL: ${ROUTEMIND_MODEL:-}
       ROUTEMIND_API_KEY: ${ROUTEMIND_API_KEY:-}
-      EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-hash}
+      EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-auto}
     volumes:
       - evidence_data:/app/.data
     depends_on:

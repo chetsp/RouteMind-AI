@@ -5,13 +5,13 @@
     "Demo parser results do not measure an LLM. Reranker is token coverage, not a cross-encoder.",
     "No Ragas/human grounding evaluation or production accuracy claim."
   ],
-  "embedding_model": "normalized-feature-hash-v1-384",
+  "embedding_model": "chroma-onnx-all-MiniLM-L6-v2-913d7300ceae",
   "retrieval": {
     "dense": {
       "queries": 60,
-      "recall_at_5": 0.9233,
-      "mrr": 0.9267,
-      "ndcg_at_5": 0.921
+      "recall_at_5": 0.95,
+      "mrr": 0.95,
+      "ndcg_at_5": 0.9479
     },
     "bm25": {
       "queries": 60,
@@ -21,15 +21,15 @@
     },
     "hybrid": {
       "queries": 60,
-      "recall_at_5": 0.94,
-      "mrr": 0.9833,
-      "ndcg_at_5": 0.9499
+      "recall_at_5": 0.9633,
+      "mrr": 0.9667,
+      "ndcg_at_5": 0.9617
     },
     "reranked": {
       "queries": 60,
-      "recall_at_5": 0.9367,
-      "mrr": 0.9667,
-      "ndcg_at_5": 0.9436
+      "recall_at_5": 0.9467,
+      "mrr": 0.95,
+      "ndcg_at_5": 0.9464
     }
   },
   "planning": {
@@ -38,13 +38,24 @@
     "expected_status_matches": 100,
     "completed_requests": 50,
     "returned_routes_independently_verified": 110,
-    "workflow_p50_ms": 29.76,
-    "workflow_p95_ms": 35.83
+    "workflow_p50_ms": 85.08,
+    "workflow_p95_ms": 137.71
+  },
+  "nlp": {
+    "manually_specified_paraphrases": 16,
+    "exact_patch_matches": 16,
+    "clarification_decisions_correct": 16,
+    "mode": "offline normalization + rules; not LLM entity F1"
+  },
+  "conversation": {
+    "real_api_turns": 2,
+    "unchanged_budget_preserved": true,
+    "verified_cost_delta_cents": 130000
   },
   "http": {
     "samples": 12,
-    "p50_ms": 36.79,
-    "p95_ms": 42.58,
+    "p50_ms": 156.9,
+    "p95_ms": 191.28,
     "transport": "in-process ASGI TestClient; includes SQL persistence, excludes real network"
   }
 }

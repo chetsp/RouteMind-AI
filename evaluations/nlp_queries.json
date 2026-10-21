@@ -1,0 +1,170 @@
+[
+  {
+    "message": "Move a dozen pallets of delicate electronics from Bay Area to Austin under four grand",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 12,
+      "required_capabilities": [
+        "fragile"
+      ],
+      "max_budget_cents": 400000
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "Ship two dozen pallets Fremont to Austin under $4.5k",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 24,
+      "max_budget_cents": 450000
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "Ship half a dozen pallets of chilled food Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 6,
+      "required_capabilities": [
+        "refrigerated"
+      ]
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "A couple of pallets Fremont to Austin; fastest",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 2,
+      "optimization_goal": "fastest"
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "Fifteen pallets from Fremont to Austin with ninety-seven percent on-time reliability",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "min_on_time_rate": 0.97
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "15 pallets Fremont to Austin with a reliable carrier",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15
+    },
+    "needs_clarification": true
+  },
+  {
+    "message": "15 pallets Fremont to Austin ready 2026-11-01T06:00:00Z; arrive by Thursday",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "ready_at": "2026-11-01T06:00:00+00:00"
+    },
+    "needs_clarification": true
+  },
+  {
+    "message": "15 pallets Fremont to Austin ready 2026-02-30T06:00:00Z",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15
+    },
+    "needs_clarification": true
+  },
+  {
+    "message": "15 pallets Fremont to Austin under five million",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15
+    },
+    "needs_clarification": true
+  },
+  {
+    "message": "15 pallets Fremont to Austin; prefer direct but one transfer is okay if it saves at least five hundred dollars",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "prefer_direct": true,
+      "max_stops": 1,
+      "transfer_savings_threshold_cents": 50000
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "15 pallets Fremont to Austin direct",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "max_stops": 0
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "15 pallets Fremont to Austin; not fragile, use secure handling",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "required_capabilities": [
+        "secure"
+      ]
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "15 pallets of hazardous materials Fremont to Austin",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "required_capabilities": [
+        "hazmat"
+      ]
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "15 pallets Fremont to Austin under 500 dollars",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "max_budget_cents": 50000
+    },
+    "needs_clarification": false
+  },
+  {
+    "message": "15 pallets Fremont to Austin with up to $500 extra",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15
+    },
+    "needs_clarification": true
+  },
+  {
+    "message": "15 pallets Fremont to Austin ready 2026-11-01T06:00:00Z by 2026-11-03T12:00:00-06:00",
+    "expected_fields": {
+      "origin": "FRE",
+      "destination": "AUS",
+      "pallets": 15,
+      "ready_at": "2026-11-01T06:00:00+00:00",
+      "delivery_deadline": "2026-11-03T12:00:00-06:00"
+    },
+    "needs_clarification": false
+  }
+]

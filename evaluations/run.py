@@ -11,6 +11,7 @@ from app.main import create_app
 from app.optimizer import verify_plan
 from app.parser import demo_extract
 from app.schemas import Constraints
+from app.language import resolve_operations
 
 ROOT = Path(__file__).parent
 
@@ -61,6 +62,22 @@ def run():
         report['planning']={'requests':len(parsing),'parser_expected_field_matches':correct,
             'expected_status_matches':matched_status,'completed_requests':completed,'returned_routes_independently_verified':routes_verified,
             'workflow_p50_ms':round(statistics.median(times),2),'workflow_p95_ms':round(ordered[math.ceil(.95*len(times))-1],2)}
+        language=json.loads((ROOT/'nlp_queries.json').read_text())
+        field_matches=0; clarification_matches=0
+        for case in language:
+            fields,questions=demo_extract(case['message'],hs)
+            fields,relative_questions,_=resolve_operations(fields,{},None)
+            fields=json.loads(json.dumps(fields,default=lambda v:v.isoformat()))
+            field_matches += fields==case['expected_fields']
+            clarification_matches += bool(questions+relative_questions)==case['needs_clarification']
+        report['nlp']={'manually_specified_paraphrases':len(language),'exact_patch_matches':field_matches,
+            'clarification_decisions_correct':clarification_matches,'mode':'offline normalization + rules; not LLM entity F1'}
+        original=client.post('/api/v1/plans',json={'message':'a dozen pallets of delicate electronics Bay Area to Austin under four grand'}).json()
+        assert original['status']=='completed'
+        child=client.post('/api/v1/plans/'+original['request_id']+'/revise',json={'message':'Make it faster but keep the budget'}).json()
+        assert child['status']=='completed' and child['constraints']['max_budget_cents']==400000
+        assert child['comparison']['cost_delta_cents']==130000
+        report['conversation']={'real_api_turns':2,'unchanged_budget_preserved':True,'verified_cost_delta_cents':130000}
         # Actual HTTP samples are separate from direct workflow evaluation.
         http_times=[]
         for _ in range(12):
@@ -71,6 +88,7 @@ def run():
         report['http']={'samples':12,'p50_ms':round(statistics.median(http_times),2),'p95_ms':round(sorted(http_times)[-1],2),
             'transport':'in-process ASGI TestClient; includes SQL persistence, excludes real network'}
     (ROOT/'results.json').write_text(json.dumps(report,indent=2)+'\n')
+    (ROOT/f'results-{r.backend}.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 
 

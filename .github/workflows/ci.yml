@@ -35,9 +35,14 @@ jobs:
         run: pytest -q
       - name: Synthetic evaluations
         if: matrix.database == 'sqlite'
-        run: python -m evaluations.run
+        run: |
+          EMBEDDING_BACKEND=hash python -m evaluations.run
+          EMBEDDING_BACKEND=minilm python -m evaluations.run
+      - name: Actual MiniLM integration
+        if: matrix.database == 'sqlite'
+        run: RUN_SEMANTIC_TESTS=1 pytest tests/test_semantic.py -q
       - uses: actions/upload-artifact@v4
         if: matrix.database == 'sqlite'
         with:
           name: synthetic-benchmark-results
-          path: evaluations/results.json
+          path: evaluations/results*.json
