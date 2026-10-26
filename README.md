@@ -25,6 +25,7 @@ RouteMind brings those choices into one conversation. It asks for missing inform
 | Compare choices | Review ranked routes, total costs, arrival times and supporting carrier evidence. |
 | Adjust the plan | Ask for faster delivery or a different quantity and compare the revised result with the earlier plan. |
 | Understand an infeasible request | Review available, verified changes to budget, deadline or stops when a single change can make the request feasible. |
+| Ask about carrier policies | Ask a document question, optionally compare two carriers, and inspect cited passages and unanswered details. |
 | Inspect the demo data | Use the read-only Data explorer to browse the records and evidence behind the experience. |
 
 ## A five-minute walkthrough
@@ -39,7 +40,7 @@ A successful demonstration shows a clear recommendation that meets the stated re
 
 ## Project scope and status
 
-The current release is a local demonstration for one ground freight shipment at a time, with routes of up to three scheduled legs. It includes conversational planning, clarification, route comparisons, cited evidence, verified what-if options and a read-only data explorer. The demo uses a fixed November 1–7, 2026 scenario; it does not reflect current operating conditions.
+The current release is a local demonstration for one ground freight shipment at a time, with routes of up to three scheduled legs. It includes conversational planning, clarification, route comparisons, cited evidence, verified what-if options, carrier-policy questions and a read-only data explorer. The demo uses a fixed November 1–7, 2026 scenario; it does not reflect current operating conditions.
 
 Live traffic, weather, carrier tracking, freight rates and capacity integrations are **not included**. Real-time data integration is deferred. This project demonstrates the planning workflow and does not claim measured operational savings or production readiness.
 
@@ -196,3 +197,15 @@ Advanced cross-encoder/Ragas experiments, real-world labeled data, live LLM qual
 Open **Data explorer** in the web UI sidebar (or visit `/explorer`). Browse hubs, carriers, capabilities, schedules, SQL evidence documents and the active ChromaDB collection. Search all fields, page through records and open **View** for complete document text or stored vector dimensions, norm and embedding values. Prices use US cents and timestamps use UTC. All reference data is synthetic; shipment conversations are excluded.
 
 Explorer APIs accept GET only: `/api/v1/explorer` (counts and active model), `/api/v1/explorer/tables/{name}`, `/api/v1/explorer/vectors`, and `/api/v1/explorer/vectors/{source_id}`. Listings support literal `q`, `limit` (1–100), and `offset` parameters. The vector browser reads the active persisted Chroma index; it does not perform semantic retrieval or require a separate Chroma installation.
+
+### Ask about carrier policies
+
+Open **Carrier policies** in the sidebar (`/policies`). Ask about handling descriptions or guidance, optionally select up to two carriers, and inspect the cited source passages. For example: **“What do the documents say about fragile electronics, and do they specify packaging requirements?”**
+
+With the existing Gemini or OpenAI configuration, the model selects passages that address the question and identifies unanswered parts. The application verifies every selected citation against the retrieved text and displays the complete passage to preserve qualifications. This is extractive document Q&A: it does not invent policy summaries or establish shipment eligibility. Source relevance and completeness still require human review. All documents remain synthetic and brief; many detailed policy questions cannot be answered.
+
+Without a configured model, or if reading fails validation, the page explicitly shows **related passages only**, not a confirmed answer. MiniLM provides semantic retrieval when active; the hash baseline is labelled separately. No model setting changes are needed if Gemini or OpenAI is already enabled. Questions are independent and are not saved to shipment history. Configured hosted providers receive the question and retrieved passages.
+
+API: `GET /api/v1/policies/carriers` and `POST /api/v1/policies/questions` with `question` (3–2,000 trimmed characters) and optional `carrier_ids` (up to two). The existing POST body limit and request rate limit apply. Responses distinguish `answered`, `not_documented` and `related_documents`, and include source IDs, versions, synthetic provenance, reading mode and warnings. Shipment planning and structured eligibility rules are unchanged.
+
+Browser check: `.venv/bin/python scripts/policies_smoke.py` against a running app (`APP_URL` overrides the default). It tests actual document retrieval and uses fixtures for model-answer display states; it does not make paid model calls. Provider wiring and citation validation are covered by automated tests. No live model quality claim is made.

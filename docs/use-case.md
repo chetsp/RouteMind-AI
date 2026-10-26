@@ -47,6 +47,14 @@ Open **Data explorer** in the sidebar to browse hubs, carriers, handling capabil
 
 The explorer is read-only and excludes shipment conversations. All displayed reference data is synthetic. It helps explain the demo's inputs; it is not a live logistics dashboard.
 
+## Asking about carrier policies
+
+Choose **Carrier policies** in the sidebar when you want to understand the available documents before planning. Enter a question such as “What handling is described for fragile electronics?” Select one carrier to narrow the search or two to compare their documented descriptions.
+
+When a language model is configured, the page shows selected passages with source links and any unanswered parts of the question. Open a source to check its full wording and version. If the documents do not specify packaging, temperature ranges or guarantees, do not assume those requirements are satisfied. Missing documentation is not evidence that a service is prohibited.
+
+Without a configured model, the page shows related passages for manual review and clearly labels them as search results. All evidence is synthetic. This feature does not change carrier eligibility, prices or schedules, and each question starts a fresh review.
+
 ## What a project review should demonstrate
 
 - A complete shipment request produces an understandable route recommendation within the stated requirements.

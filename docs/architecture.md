@@ -9,6 +9,7 @@
 | Component | Responsibility | Implementation |
 |---|---|---|
 | Browser UI | Shipment entry, follow-ups, comparisons, citations and what-if actions | [Static frontend](../app/static/) |
+| Carrier policy Q&A | Hybrid evidence retrieval; optional typed model passage selection; exact citation validation; explicit retrieval-only fallback | [policies.py](../app/policies.py), [Policy UI](../app/static/policies.html) |
 | FastAPI | Typed HTTP contracts; new, clarify and revise endpoints | [main.py](../app/main.py), [schemas.py](../app/schemas.py) |
 | Conversation context | Preserve unchanged constraints; create immutable child requests; resolve relative budget and arrival edits | [language.py](../app/language.py), [workflow.py](../app/workflow.py) |
 | Language interpretation | Quantity/currency normalization and rules; optional typed PydanticAI extraction using prior context | [parser.py](../app/parser.py) |
