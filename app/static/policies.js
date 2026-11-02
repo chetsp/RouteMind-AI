@@ -22,7 +22,8 @@ $('policy-form').addEventListener('submit',async event=>{
   const carrier_ids=[...new Set([$('carrier-one').value,$('carrier-two').value].filter(Boolean))];
   try {
     const data=await json('/api/v1/policies/questions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,carrier_ids})});
-    $('answer-title').textContent=data.status==='answered'?'What the documents say':data.status==='not_documented'?'Not answered by the retrieved documents':'Related passages · Review required';
+    const titles={answered:'What the documents say',not_documented:'Not answered by the retrieved documents',insufficient_evidence:'Not enough relevant evidence',conflicting_evidence:'Conflicting evidence · Review required'};
+    $('answer-title').textContent=titles[data.status] || 'Related passages · Review required';
     $('asked-question').textContent=data.question;
     $('mode').textContent=`${data.mode==='retrieval-only'?'Related-document search only':'Model-assisted passage selection'} · Embeddings: ${data.embedding_backend} · Synthetic evidence`;
     $('warnings').replaceChildren(...data.warnings.map(w=>el('p',w)));
@@ -33,6 +34,15 @@ $('policy-form').addEventListener('submit',async event=>{
       a.addEventListener('click',()=>{document.getElementById(`source-${f.source_id}`).open=true;});section.append(a);$('findings').append(section);
     }
     $('gaps').replaceChildren();
+    if(data.conflicts?.length){
+      $('gaps').append(el('h3','Sources needing review'));
+      for(const conflict of data.conflicts) $('gaps').append(el('p', `${conflict.source_ids.join(', ')} · ${conflict.reason.replaceAll('_',' ')}`));
+    }
+    if(data.evidence_assessment?.excluded?.length){
+      const review=el('details','');review.append(el('summary','Excluded source details'));
+      for(const source of data.evidence_assessment.excluded) review.append(el('p',`${source.source_id}: ${source.reason.replaceAll('_',' ')}`));
+      $('gaps').append(review);
+    }
     if(data.unanswered_questions.length) {
       $('gaps').append(el('h3','Still unanswered in these documents'));
       const list=el('ul','');for(const gap of data.unanswered_questions)list.append(el('li',gap));$('gaps').append(list);
@@ -40,7 +50,7 @@ $('policy-form').addEventListener('submit',async event=>{
     $('sources').replaceChildren();
     for(const s of data.evidence) {
       const d=el('details','','policy-source');d.id=`source-${s.source_id}`;
-      d.append(el('summary',`${s.carrier_name} · ${s.source_id} · Version ${s.version}`),el('p',s.text),el('p',`${s.document_type} · ${s.provenance} · ${s.retrieval_method}`,'hint'));
+      d.append(el('summary',`${s.carrier_name} · ${s.source_id} · Version ${s.version}`),el('p',s.text),el('p',`${s.document_type} · ${s.provenance} · ${s.retrieval_method} · Freshness: ${s.freshness || 'unknown'}${s.effective_from ? ' · Effective from '+s.effective_from : ''}${s.effective_until ? ' · Effective until '+s.effective_until : ''}`,'hint'));
       $('sources').append(d);
     }
     if(!data.evidence.length)$('sources').append(el('p','No policy passages are available.'));

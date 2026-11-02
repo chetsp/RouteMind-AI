@@ -1,0 +1,1622 @@
+{
+  "version": "quality-v1",
+  "construction": "Authored synthetic labels with shared question templates; route-pair NLP groups and carrier policy groups are disjoint across splits. Not independent human or production data.",
+  "nlp": [
+    {
+      "id": "nlp-01-1",
+      "group": "SEA-DEN",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Seattle to Denver under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-01-2",
+      "group": "SEA-DEN",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Seattle to Denver under four grand.",
+      "expected_fields": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-01-3",
+      "group": "SEA-DEN",
+      "split": "dev",
+      "message": "General freight from Seattle to Denver, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-01-4",
+      "group": "SEA-DEN",
+      "split": "dev",
+      "message": "Move 6 pallets from Seattle to Denver tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-02-1",
+      "group": "PDX-SLC",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Portland to Salt Lake City under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-02-2",
+      "group": "PDX-SLC",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Portland to Salt Lake City under four grand.",
+      "expected_fields": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-02-3",
+      "group": "PDX-SLC",
+      "split": "dev",
+      "message": "General freight from Portland to Salt Lake City, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-02-4",
+      "group": "PDX-SLC",
+      "split": "dev",
+      "message": "Move 6 pallets from Portland to Salt Lake City tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-03-1",
+      "group": "LAX-HOU",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Los Angeles to Houston under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-03-2",
+      "group": "LAX-HOU",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Los Angeles to Houston under four grand.",
+      "expected_fields": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-03-3",
+      "group": "LAX-HOU",
+      "split": "dev",
+      "message": "General freight from Los Angeles to Houston, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-03-4",
+      "group": "LAX-HOU",
+      "split": "dev",
+      "message": "Move 6 pallets from Los Angeles to Houston tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-04-1",
+      "group": "DAL-ATL",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Dallas to Atlanta under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-04-2",
+      "group": "DAL-ATL",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Dallas to Atlanta under four grand.",
+      "expected_fields": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-04-3",
+      "group": "DAL-ATL",
+      "split": "dev",
+      "message": "General freight from Dallas to Atlanta, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-04-4",
+      "group": "DAL-ATL",
+      "split": "dev",
+      "message": "Move 6 pallets from Dallas to Atlanta tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-05-1",
+      "group": "BOS-NYC",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Boston to New York under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-05-2",
+      "group": "BOS-NYC",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Boston to New York under four grand.",
+      "expected_fields": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-05-3",
+      "group": "BOS-NYC",
+      "split": "dev",
+      "message": "General freight from Boston to New York, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-05-4",
+      "group": "BOS-NYC",
+      "split": "dev",
+      "message": "Move 6 pallets from Boston to New York tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-06-1",
+      "group": "MIA-CLT",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Miami to Charlotte under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-06-2",
+      "group": "MIA-CLT",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Miami to Charlotte under four grand.",
+      "expected_fields": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-06-3",
+      "group": "MIA-CLT",
+      "split": "dev",
+      "message": "General freight from Miami to Charlotte, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-06-4",
+      "group": "MIA-CLT",
+      "split": "dev",
+      "message": "Move 6 pallets from Miami to Charlotte tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-07-1",
+      "group": "PHX-SAT",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Phoenix to San Antonio under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-07-2",
+      "group": "PHX-SAT",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Phoenix to San Antonio under four grand.",
+      "expected_fields": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-07-3",
+      "group": "PHX-SAT",
+      "split": "dev",
+      "message": "General freight from Phoenix to San Antonio, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-07-4",
+      "group": "PHX-SAT",
+      "split": "dev",
+      "message": "Move 6 pallets from Phoenix to San Antonio tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-08-1",
+      "group": "CHI-AUS",
+      "split": "dev",
+      "message": "Ship 9 pallets of fragile electronics from Chicago to Austin under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-08-2",
+      "group": "CHI-AUS",
+      "split": "dev",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Chicago to Austin under four grand.",
+      "expected_fields": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-08-3",
+      "group": "CHI-AUS",
+      "split": "dev",
+      "message": "General freight from Chicago to Austin, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-08-4",
+      "group": "CHI-AUS",
+      "split": "dev",
+      "message": "Move 6 pallets from Chicago to Austin tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-09-1",
+      "group": "DEN-SEA",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from Denver to Seattle under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-09-2",
+      "group": "DEN-SEA",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Denver to Seattle under four grand.",
+      "expected_fields": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-09-3",
+      "group": "DEN-SEA",
+      "split": "test",
+      "message": "General freight from Denver to Seattle, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-09-4",
+      "group": "DEN-SEA",
+      "split": "test",
+      "message": "Move 6 pallets from Denver to Seattle tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-10-1",
+      "group": "SLC-PDX",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from Salt Lake City to Portland under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-10-2",
+      "group": "SLC-PDX",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Salt Lake City to Portland under four grand.",
+      "expected_fields": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-10-3",
+      "group": "SLC-PDX",
+      "split": "test",
+      "message": "General freight from Salt Lake City to Portland, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-10-4",
+      "group": "SLC-PDX",
+      "split": "test",
+      "message": "Move 6 pallets from Salt Lake City to Portland tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-11-1",
+      "group": "HOU-LAX",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from Houston to Los Angeles under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-11-2",
+      "group": "HOU-LAX",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Houston to Los Angeles under four grand.",
+      "expected_fields": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-11-3",
+      "group": "HOU-LAX",
+      "split": "test",
+      "message": "General freight from Houston to Los Angeles, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-11-4",
+      "group": "HOU-LAX",
+      "split": "test",
+      "message": "Move 6 pallets from Houston to Los Angeles tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-12-1",
+      "group": "ATL-DAL",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from Atlanta to Dallas under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-12-2",
+      "group": "ATL-DAL",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Atlanta to Dallas under four grand.",
+      "expected_fields": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-12-3",
+      "group": "ATL-DAL",
+      "split": "test",
+      "message": "General freight from Atlanta to Dallas, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-12-4",
+      "group": "ATL-DAL",
+      "split": "test",
+      "message": "Move 6 pallets from Atlanta to Dallas tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-13-1",
+      "group": "NYC-BOS",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from New York to Boston under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-13-2",
+      "group": "NYC-BOS",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from New York to Boston under four grand.",
+      "expected_fields": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-13-3",
+      "group": "NYC-BOS",
+      "split": "test",
+      "message": "General freight from New York to Boston, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-13-4",
+      "group": "NYC-BOS",
+      "split": "test",
+      "message": "Move 6 pallets from New York to Boston tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-14-1",
+      "group": "CLT-MIA",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from Charlotte to Miami under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-14-2",
+      "group": "CLT-MIA",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Charlotte to Miami under four grand.",
+      "expected_fields": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-14-3",
+      "group": "CLT-MIA",
+      "split": "test",
+      "message": "General freight from Charlotte to Miami, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-14-4",
+      "group": "CLT-MIA",
+      "split": "test",
+      "message": "Move 6 pallets from Charlotte to Miami tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-15-1",
+      "group": "SAT-PHX",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from San Antonio to Phoenix under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-15-2",
+      "group": "SAT-PHX",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from San Antonio to Phoenix under four grand.",
+      "expected_fields": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-15-3",
+      "group": "SAT-PHX",
+      "split": "test",
+      "message": "General freight from San Antonio to Phoenix, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-15-4",
+      "group": "SAT-PHX",
+      "split": "test",
+      "message": "Move 6 pallets from San Antonio to Phoenix tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-16-1",
+      "group": "AUS-CHI",
+      "split": "test",
+      "message": "Ship 9 pallets of fragile electronics from Austin to Chicago under $3,200; cheapest.",
+      "expected_fields": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-16-2",
+      "group": "AUS-CHI",
+      "split": "test",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Austin to Chicago under four grand.",
+      "expected_fields": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "needs_clarification": false
+    },
+    {
+      "id": "nlp-16-3",
+      "group": "AUS-CHI",
+      "split": "test",
+      "message": "General freight from Austin to Chicago, cheapest, under $2,500.",
+      "expected_fields": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "needs_clarification": true
+    },
+    {
+      "id": "nlp-16-4",
+      "group": "AUS-CHI",
+      "split": "test",
+      "message": "Move 6 pallets from Austin to Chicago tomorrow; require high reliability.",
+      "expected_fields": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 6
+      },
+      "needs_clarification": true
+    }
+  ],
+  "policies": [
+    {
+      "id": "policy-01-1",
+      "group": "C01",
+      "split": "dev",
+      "question": "What does Cobalt Secure Ground describe for fragile electronics?",
+      "carrier_ids": [
+        "C01"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C01-1",
+        "profile-C01-2",
+        "profile-C01-3",
+        "profile-C01-4",
+        "profile-C01-5"
+      ]
+    },
+    {
+      "id": "policy-01-2",
+      "group": "C01",
+      "split": "dev",
+      "question": "What does Cobalt Secure Ground say about sealed trailers and controlled handoffs?",
+      "carrier_ids": [
+        "C01"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C01-1",
+        "profile-C01-2",
+        "profile-C01-3",
+        "profile-C01-4",
+        "profile-C01-5"
+      ]
+    },
+    {
+      "id": "policy-01-3",
+      "group": "C01",
+      "split": "dev",
+      "question": "Does Cobalt Secure Ground refund cancellations?",
+      "carrier_ids": [
+        "C01"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-01-4",
+      "group": "C01",
+      "split": "dev",
+      "question": "What insurance compensation does Cobalt Secure Ground promise?",
+      "carrier_ids": [
+        "C01"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-01-5",
+      "group": "C01",
+      "split": "dev",
+      "question": "Which languages do Cobalt Secure Ground customer representatives speak?",
+      "carrier_ids": [
+        "C01"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-02-1",
+      "group": "C02",
+      "split": "dev",
+      "question": "What does Mesa Value Freight describe for general dry freight?",
+      "carrier_ids": [
+        "C02"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C02-1",
+        "profile-C02-2",
+        "profile-C02-3",
+        "profile-C02-4",
+        "profile-C02-5"
+      ]
+    },
+    {
+      "id": "policy-02-2",
+      "group": "C02",
+      "split": "dev",
+      "question": "What does Mesa Value Freight say about standard pallet shipping?",
+      "carrier_ids": [
+        "C02"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C02-1",
+        "profile-C02-2",
+        "profile-C02-3",
+        "profile-C02-4",
+        "profile-C02-5"
+      ]
+    },
+    {
+      "id": "policy-02-3",
+      "group": "C02",
+      "split": "dev",
+      "question": "Does Mesa Value Freight refund cancellations?",
+      "carrier_ids": [
+        "C02"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-02-4",
+      "group": "C02",
+      "split": "dev",
+      "question": "What insurance compensation does Mesa Value Freight promise?",
+      "carrier_ids": [
+        "C02"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-02-5",
+      "group": "C02",
+      "split": "dev",
+      "question": "Which languages do Mesa Value Freight customer representatives speak?",
+      "carrier_ids": [
+        "C02"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-03-1",
+      "group": "C03",
+      "split": "dev",
+      "question": "What does Glacier Cold Chain describe for chilled food?",
+      "carrier_ids": [
+        "C03"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C03-1",
+        "profile-C03-2",
+        "profile-C03-3",
+        "profile-C03-4",
+        "profile-C03-5"
+      ]
+    },
+    {
+      "id": "policy-03-2",
+      "group": "C03",
+      "split": "dev",
+      "question": "What does Glacier Cold Chain say about temperature-controlled trailers?",
+      "carrier_ids": [
+        "C03"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C03-1",
+        "profile-C03-2",
+        "profile-C03-3",
+        "profile-C03-4",
+        "profile-C03-5"
+      ]
+    },
+    {
+      "id": "policy-03-3",
+      "group": "C03",
+      "split": "dev",
+      "question": "Does Glacier Cold Chain refund cancellations?",
+      "carrier_ids": [
+        "C03"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-03-4",
+      "group": "C03",
+      "split": "dev",
+      "question": "What insurance compensation does Glacier Cold Chain promise?",
+      "carrier_ids": [
+        "C03"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-03-5",
+      "group": "C03",
+      "split": "dev",
+      "question": "Which languages do Glacier Cold Chain customer representatives speak?",
+      "carrier_ids": [
+        "C03"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-04-1",
+      "group": "C04",
+      "split": "dev",
+      "question": "What does Atlas Express describe for fragile goods?",
+      "carrier_ids": [
+        "C04"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C04-1",
+        "profile-C04-2",
+        "profile-C04-3",
+        "profile-C04-4",
+        "profile-C04-5"
+      ]
+    },
+    {
+      "id": "policy-04-2",
+      "group": "C04",
+      "split": "dev",
+      "question": "What does Atlas Express say about priority ground service?",
+      "carrier_ids": [
+        "C04"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C04-1",
+        "profile-C04-2",
+        "profile-C04-3",
+        "profile-C04-4",
+        "profile-C04-5"
+      ]
+    },
+    {
+      "id": "policy-04-3",
+      "group": "C04",
+      "split": "dev",
+      "question": "Does Atlas Express refund cancellations?",
+      "carrier_ids": [
+        "C04"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-04-4",
+      "group": "C04",
+      "split": "dev",
+      "question": "What insurance compensation does Atlas Express promise?",
+      "carrier_ids": [
+        "C04"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-04-5",
+      "group": "C04",
+      "split": "dev",
+      "question": "Which languages do Atlas Express customer representatives speak?",
+      "carrier_ids": [
+        "C04"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-05-1",
+      "group": "C05",
+      "split": "dev",
+      "question": "What does Copper Industrial describe for hazardous material?",
+      "carrier_ids": [
+        "C05"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C05-1",
+        "profile-C05-2",
+        "profile-C05-3",
+        "profile-C05-4",
+        "profile-C05-5"
+      ]
+    },
+    {
+      "id": "policy-05-2",
+      "group": "C05",
+      "split": "dev",
+      "question": "What does Copper Industrial say about regulated industrial freight?",
+      "carrier_ids": [
+        "C05"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C05-1",
+        "profile-C05-2",
+        "profile-C05-3",
+        "profile-C05-4",
+        "profile-C05-5"
+      ]
+    },
+    {
+      "id": "policy-05-3",
+      "group": "C05",
+      "split": "dev",
+      "question": "Does Copper Industrial refund cancellations?",
+      "carrier_ids": [
+        "C05"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-05-4",
+      "group": "C05",
+      "split": "dev",
+      "question": "What insurance compensation does Copper Industrial promise?",
+      "carrier_ids": [
+        "C05"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-05-5",
+      "group": "C05",
+      "split": "dev",
+      "question": "Which languages do Copper Industrial customer representatives speak?",
+      "carrier_ids": [
+        "C05"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-06-1",
+      "group": "C06",
+      "split": "test",
+      "question": "What does Prairie Pallet describe for palletized dry goods?",
+      "carrier_ids": [
+        "C06"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C06-1",
+        "profile-C06-2",
+        "profile-C06-3",
+        "profile-C06-4",
+        "profile-C06-5"
+      ]
+    },
+    {
+      "id": "policy-06-2",
+      "group": "C06",
+      "split": "test",
+      "question": "What does Prairie Pallet say about scheduled regional departures?",
+      "carrier_ids": [
+        "C06"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C06-1",
+        "profile-C06-2",
+        "profile-C06-3",
+        "profile-C06-4",
+        "profile-C06-5"
+      ]
+    },
+    {
+      "id": "policy-06-3",
+      "group": "C06",
+      "split": "test",
+      "question": "Does Prairie Pallet refund cancellations?",
+      "carrier_ids": [
+        "C06"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-06-4",
+      "group": "C06",
+      "split": "test",
+      "question": "What insurance compensation does Prairie Pallet promise?",
+      "carrier_ids": [
+        "C06"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-06-5",
+      "group": "C06",
+      "split": "test",
+      "question": "Which languages do Prairie Pallet customer representatives speak?",
+      "carrier_ids": [
+        "C06"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-07-1",
+      "group": "C07",
+      "split": "test",
+      "question": "What does Summit Protected describe for high-value loads?",
+      "carrier_ids": [
+        "C07"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C07-1",
+        "profile-C07-2",
+        "profile-C07-3",
+        "profile-C07-4",
+        "profile-C07-5"
+      ]
+    },
+    {
+      "id": "policy-07-2",
+      "group": "C07",
+      "split": "test",
+      "question": "What does Summit Protected say about temperature-controlled equipment?",
+      "carrier_ids": [
+        "C07"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C07-1",
+        "profile-C07-2",
+        "profile-C07-3",
+        "profile-C07-4",
+        "profile-C07-5"
+      ]
+    },
+    {
+      "id": "policy-07-3",
+      "group": "C07",
+      "split": "test",
+      "question": "Does Summit Protected refund cancellations?",
+      "carrier_ids": [
+        "C07"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-07-4",
+      "group": "C07",
+      "split": "test",
+      "question": "What insurance compensation does Summit Protected promise?",
+      "carrier_ids": [
+        "C07"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-07-5",
+      "group": "C07",
+      "split": "test",
+      "question": "Which languages do Summit Protected customer representatives speak?",
+      "carrier_ids": [
+        "C07"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-08-1",
+      "group": "C08",
+      "split": "test",
+      "question": "What does Harbor General describe for general freight?",
+      "carrier_ids": [
+        "C08"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C08-1",
+        "profile-C08-2",
+        "profile-C08-3",
+        "profile-C08-4",
+        "profile-C08-5"
+      ]
+    },
+    {
+      "id": "policy-08-2",
+      "group": "C08",
+      "split": "test",
+      "question": "What does Harbor General say about regional hubs?",
+      "carrier_ids": [
+        "C08"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C08-1",
+        "profile-C08-2",
+        "profile-C08-3",
+        "profile-C08-4",
+        "profile-C08-5"
+      ]
+    },
+    {
+      "id": "policy-08-3",
+      "group": "C08",
+      "split": "test",
+      "question": "Does Harbor General refund cancellations?",
+      "carrier_ids": [
+        "C08"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-08-4",
+      "group": "C08",
+      "split": "test",
+      "question": "What insurance compensation does Harbor General promise?",
+      "carrier_ids": [
+        "C08"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-08-5",
+      "group": "C08",
+      "split": "test",
+      "question": "Which languages do Harbor General customer representatives speak?",
+      "carrier_ids": [
+        "C08"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-09-1",
+      "group": "C09",
+      "split": "test",
+      "question": "What does Orion Regulated describe for hazardous material?",
+      "carrier_ids": [
+        "C09"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C09-1",
+        "profile-C09-2",
+        "profile-C09-3",
+        "profile-C09-4",
+        "profile-C09-5"
+      ]
+    },
+    {
+      "id": "policy-09-2",
+      "group": "C09",
+      "split": "test",
+      "question": "What does Orion Regulated say about secure regulated freight?",
+      "carrier_ids": [
+        "C09"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C09-1",
+        "profile-C09-2",
+        "profile-C09-3",
+        "profile-C09-4",
+        "profile-C09-5"
+      ]
+    },
+    {
+      "id": "policy-09-3",
+      "group": "C09",
+      "split": "test",
+      "question": "Does Orion Regulated refund cancellations?",
+      "carrier_ids": [
+        "C09"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-09-4",
+      "group": "C09",
+      "split": "test",
+      "question": "What insurance compensation does Orion Regulated promise?",
+      "carrier_ids": [
+        "C09"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-09-5",
+      "group": "C09",
+      "split": "test",
+      "question": "Which languages do Orion Regulated customer representatives speak?",
+      "carrier_ids": [
+        "C09"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-10-1",
+      "group": "C10",
+      "split": "test",
+      "question": "What does Juniper Care describe for delicate fragile goods?",
+      "carrier_ids": [
+        "C10"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C10-1",
+        "profile-C10-2",
+        "profile-C10-3",
+        "profile-C10-4",
+        "profile-C10-5"
+      ]
+    },
+    {
+      "id": "policy-10-2",
+      "group": "C10",
+      "split": "test",
+      "question": "What does Juniper Care say about padded handling?",
+      "carrier_ids": [
+        "C10"
+      ],
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C10-1",
+        "profile-C10-2",
+        "profile-C10-3",
+        "profile-C10-4",
+        "profile-C10-5"
+      ]
+    },
+    {
+      "id": "policy-10-3",
+      "group": "C10",
+      "split": "test",
+      "question": "Does Juniper Care refund cancellations?",
+      "carrier_ids": [
+        "C10"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-10-4",
+      "group": "C10",
+      "split": "test",
+      "question": "What insurance compensation does Juniper Care promise?",
+      "carrier_ids": [
+        "C10"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    },
+    {
+      "id": "policy-10-5",
+      "group": "C10",
+      "split": "test",
+      "question": "Which languages do Juniper Care customer representatives speak?",
+      "carrier_ids": [
+        "C10"
+      ],
+      "answerable": false,
+      "gold_source_ids": []
+    }
+  ]
+}

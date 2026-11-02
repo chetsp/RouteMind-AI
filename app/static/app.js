@@ -92,6 +92,10 @@ function render(state) {
     const explanation = node('div',undefined,'explanation');
     explanation.append(node('h3','Why this route'), node('div',state.explanation)); area.append(explanation);
   }
+  if(state.evidence_assessment){
+    const label={sufficient_evidence:'Related evidence found',insufficient_evidence:'Insufficient relevant evidence — SQL records used',conflicting_evidence:'Evidence conflict — SQL records used',retrieval_unavailable:'Evidence unavailable — SQL records used'};
+    area.append(node('p',label[state.evidence_assessment.status] || state.evidence_assessment.status,'hint'));
+  }
   const understood = node('section',undefined,'understood');
   understood.append(node('h3','What I understood'));
   const c = state.constraints || {};

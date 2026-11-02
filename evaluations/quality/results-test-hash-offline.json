@@ -1,0 +1,3796 @@
+{
+  "dataset_version": "quality-v1",
+  "dataset_sha256": "e62afed8c3af4fee348203145315126a9bef4c73ce00d54837e16ad1c59419bf",
+  "split": "test",
+  "embedding_backend": "hash",
+  "live_model": false,
+  "partial_run": false,
+  "model": null,
+  "construction": "Authored synthetic labels with shared question templates; route-pair NLP groups and carrier policy groups are disjoint across splits. Not independent human or production data.",
+  "limitations": [
+    "Test labels are visible in the repository; do not tune on the test split.",
+    "Synthetic shared templates, not independently human-labelled data or production accuracy.",
+    "Exact entity matching and gold-source citation precision are proxies, not human faithfulness judgement.",
+    "No live-model answer-quality metrics are populated without --live-model."
+  ],
+  "nlp_samples": [
+    {
+      "id": "nlp-09-1",
+      "group": "DEN-SEA",
+      "message": "Ship 9 pallets of fragile electronics from Denver to Seattle under $3,200; cheapest.",
+      "expected": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-09-2",
+      "group": "DEN-SEA",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Denver to Seattle under four grand.",
+      "expected": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-09-3",
+      "group": "DEN-SEA",
+      "message": "General freight from Denver to Seattle, cheapest, under $2,500.",
+      "expected": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-09-4",
+      "group": "DEN-SEA",
+      "message": "Move 6 pallets from Denver to Seattle tomorrow; require high reliability.",
+      "expected": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "DEN",
+        "destination": "SEA",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-10-1",
+      "group": "SLC-PDX",
+      "message": "Ship 9 pallets of fragile electronics from Salt Lake City to Portland under $3,200; cheapest.",
+      "expected": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-10-2",
+      "group": "SLC-PDX",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Salt Lake City to Portland under four grand.",
+      "expected": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-10-3",
+      "group": "SLC-PDX",
+      "message": "General freight from Salt Lake City to Portland, cheapest, under $2,500.",
+      "expected": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-10-4",
+      "group": "SLC-PDX",
+      "message": "Move 6 pallets from Salt Lake City to Portland tomorrow; require high reliability.",
+      "expected": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "SLC",
+        "destination": "PDX",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-11-1",
+      "group": "HOU-LAX",
+      "message": "Ship 9 pallets of fragile electronics from Houston to Los Angeles under $3,200; cheapest.",
+      "expected": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-11-2",
+      "group": "HOU-LAX",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Houston to Los Angeles under four grand.",
+      "expected": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-11-3",
+      "group": "HOU-LAX",
+      "message": "General freight from Houston to Los Angeles, cheapest, under $2,500.",
+      "expected": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-11-4",
+      "group": "HOU-LAX",
+      "message": "Move 6 pallets from Houston to Los Angeles tomorrow; require high reliability.",
+      "expected": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "HOU",
+        "destination": "LAX",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-12-1",
+      "group": "ATL-DAL",
+      "message": "Ship 9 pallets of fragile electronics from Atlanta to Dallas under $3,200; cheapest.",
+      "expected": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-12-2",
+      "group": "ATL-DAL",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Atlanta to Dallas under four grand.",
+      "expected": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-12-3",
+      "group": "ATL-DAL",
+      "message": "General freight from Atlanta to Dallas, cheapest, under $2,500.",
+      "expected": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-12-4",
+      "group": "ATL-DAL",
+      "message": "Move 6 pallets from Atlanta to Dallas tomorrow; require high reliability.",
+      "expected": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "ATL",
+        "destination": "DAL",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-13-1",
+      "group": "NYC-BOS",
+      "message": "Ship 9 pallets of fragile electronics from New York to Boston under $3,200; cheapest.",
+      "expected": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-13-2",
+      "group": "NYC-BOS",
+      "message": "Find the fastest route for a dozen pallets of chilled food from New York to Boston under four grand.",
+      "expected": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-13-3",
+      "group": "NYC-BOS",
+      "message": "General freight from New York to Boston, cheapest, under $2,500.",
+      "expected": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-13-4",
+      "group": "NYC-BOS",
+      "message": "Move 6 pallets from New York to Boston tomorrow; require high reliability.",
+      "expected": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "NYC",
+        "destination": "BOS",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-14-1",
+      "group": "CLT-MIA",
+      "message": "Ship 9 pallets of fragile electronics from Charlotte to Miami under $3,200; cheapest.",
+      "expected": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-14-2",
+      "group": "CLT-MIA",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Charlotte to Miami under four grand.",
+      "expected": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-14-3",
+      "group": "CLT-MIA",
+      "message": "General freight from Charlotte to Miami, cheapest, under $2,500.",
+      "expected": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-14-4",
+      "group": "CLT-MIA",
+      "message": "Move 6 pallets from Charlotte to Miami tomorrow; require high reliability.",
+      "expected": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "CLT",
+        "destination": "MIA",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-15-1",
+      "group": "SAT-PHX",
+      "message": "Ship 9 pallets of fragile electronics from San Antonio to Phoenix under $3,200; cheapest.",
+      "expected": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-15-2",
+      "group": "SAT-PHX",
+      "message": "Find the fastest route for a dozen pallets of chilled food from San Antonio to Phoenix under four grand.",
+      "expected": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-15-3",
+      "group": "SAT-PHX",
+      "message": "General freight from San Antonio to Phoenix, cheapest, under $2,500.",
+      "expected": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-15-4",
+      "group": "SAT-PHX",
+      "message": "Move 6 pallets from San Antonio to Phoenix tomorrow; require high reliability.",
+      "expected": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "SAT",
+        "destination": "PHX",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-16-1",
+      "group": "AUS-CHI",
+      "message": "Ship 9 pallets of fragile electronics from Austin to Chicago under $3,200; cheapest.",
+      "expected": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-16-2",
+      "group": "AUS-CHI",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Austin to Chicago under four grand.",
+      "expected": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-16-3",
+      "group": "AUS-CHI",
+      "message": "General freight from Austin to Chicago, cheapest, under $2,500.",
+      "expected": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-16-4",
+      "group": "AUS-CHI",
+      "message": "Move 6 pallets from Austin to Chicago tomorrow; require high reliability.",
+      "expected": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "AUS",
+        "destination": "CHI",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    }
+  ],
+  "policy_samples": [
+    {
+      "id": "policy-06-1",
+      "group": "C06",
+      "question": "What does Prairie Pallet describe for palletized dry goods?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C06-1",
+        "profile-C06-2",
+        "profile-C06-3",
+        "profile-C06-4",
+        "profile-C06-5"
+      ],
+      "result": {
+        "question": "What does Prairie Pallet describe for palletized dry goods?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C06-1",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2694145441055298,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry",
+              "goods",
+              "palletized"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-2",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2643657326698303,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry",
+              "goods",
+              "palletized"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-4",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2694145441055298,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry",
+              "goods",
+              "palletized"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-3",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.26436567306518555,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry",
+              "goods",
+              "palletized"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-5",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2643657326698303,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry",
+              "goods",
+              "palletized"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "dry",
+            "goods",
+            "palletized"
+          ],
+          "freshness_unknown": [
+            "profile-C06-1",
+            "profile-C06-2",
+            "profile-C06-4",
+            "profile-C06-3",
+            "profile-C06-5"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-06-2",
+      "group": "C06",
+      "question": "What does Prairie Pallet say about scheduled regional departures?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C06-1",
+        "profile-C06-2",
+        "profile-C06-3",
+        "profile-C06-4",
+        "profile-C06-5"
+      ],
+      "result": {
+        "question": "What does Prairie Pallet say about scheduled regional departures?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C06-1",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2694145441055298,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "departures",
+              "regional",
+              "scheduled"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-2",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2643657326698303,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "departures",
+              "regional",
+              "scheduled"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-4",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2694145441055298,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "departures",
+              "regional",
+              "scheduled"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-3",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.26436567306518555,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "departures",
+              "regional",
+              "scheduled"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          },
+          {
+            "source_id": "profile-C06-5",
+            "text": "SYNTHETIC. Prairie Pallet. Standard palletized dry goods service with scheduled regional departures. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C06",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2643657326698303,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "departures",
+              "regional",
+              "scheduled"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Prairie Pallet"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "departures",
+            "regional",
+            "scheduled"
+          ],
+          "freshness_unknown": [
+            "profile-C06-1",
+            "profile-C06-2",
+            "profile-C06-4",
+            "profile-C06-3",
+            "profile-C06-5"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-06-3",
+      "group": "C06",
+      "question": "Does Prairie Pallet refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Prairie Pallet refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C06-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-06-4",
+      "group": "C06",
+      "question": "What insurance compensation does Prairie Pallet promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Prairie Pallet promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C06-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-06-5",
+      "group": "C06",
+      "question": "Which languages do Prairie Pallet customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Prairie Pallet customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C06-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C06-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-07-1",
+      "group": "C07",
+      "question": "What does Summit Protected describe for high-value loads?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C07-1",
+        "profile-C07-2",
+        "profile-C07-3",
+        "profile-C07-4",
+        "profile-C07-5"
+      ],
+      "result": {
+        "question": "What does Summit Protected describe for high-value loads?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C07-1",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "loads",
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-2",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "loads",
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-3",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "loads",
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-4",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "loads",
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-5",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24262607097625732,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "loads",
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "handling-secure",
+            "text": "SYNTHETIC authored guidance: secure cargo requires an explicit secure capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.06394916772842407,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "loads",
+            "secure"
+          ],
+          "freshness_unknown": [
+            "profile-C07-1",
+            "profile-C07-2",
+            "profile-C07-3",
+            "profile-C07-4",
+            "profile-C07-5",
+            "handling-secure"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-07-2",
+      "group": "C07",
+      "question": "What does Summit Protected say about temperature-controlled equipment?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C07-1",
+        "profile-C07-2",
+        "profile-C07-3",
+        "profile-C07-4",
+        "profile-C07-5"
+      ],
+      "result": {
+        "question": "What does Summit Protected say about temperature-controlled equipment?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C07-1",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "equipment",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-2",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "equipment",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-3",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "equipment",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-4",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24755454063415527,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "equipment",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "profile-C07-5",
+            "text": "SYNTHETIC. Summit Protected. Protected fragile and high-value loads with temperature-controlled equipment. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C07",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24262607097625732,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "equipment",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Summit Protected"
+          },
+          {
+            "source_id": "handling-refrigerated",
+            "text": "SYNTHETIC authored guidance: refrigerated cargo requires an explicit refrigerated capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.026179790496826172,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "equipment",
+            "refrigerated"
+          ],
+          "freshness_unknown": [
+            "profile-C07-1",
+            "profile-C07-2",
+            "profile-C07-3",
+            "profile-C07-4",
+            "profile-C07-5",
+            "handling-refrigerated"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-07-3",
+      "group": "C07",
+      "question": "Does Summit Protected refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Summit Protected refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C07-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-07-4",
+      "group": "C07",
+      "question": "What insurance compensation does Summit Protected promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Summit Protected promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C07-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-07-5",
+      "group": "C07",
+      "question": "Which languages do Summit Protected customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Summit Protected customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C07-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C07-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-08-1",
+      "group": "C08",
+      "question": "What does Harbor General describe for general freight?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C08-1",
+        "profile-C08-2",
+        "profile-C08-3",
+        "profile-C08-4",
+        "profile-C08-5"
+      ],
+      "result": {
+        "question": "What does Harbor General describe for general freight?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C08-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-08-2",
+      "group": "C08",
+      "question": "What does Harbor General say about regional hubs?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C08-1",
+        "profile-C08-2",
+        "profile-C08-3",
+        "profile-C08-4",
+        "profile-C08-5"
+      ],
+      "result": {
+        "question": "What does Harbor General say about regional hubs?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C08-1",
+            "text": "SYNTHETIC. Harbor General. General freight across regional hubs. No specialist equipment is verified. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C08",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2024247646331787,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hubs",
+              "regional"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Harbor General"
+          },
+          {
+            "source_id": "profile-C08-2",
+            "text": "SYNTHETIC. Harbor General. General freight across regional hubs. No specialist equipment is verified. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C08",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2024247646331787,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hubs",
+              "regional"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Harbor General"
+          },
+          {
+            "source_id": "profile-C08-3",
+            "text": "SYNTHETIC. Harbor General. General freight across regional hubs. No specialist equipment is verified. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C08",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2024247646331787,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hubs",
+              "regional"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Harbor General"
+          },
+          {
+            "source_id": "profile-C08-4",
+            "text": "SYNTHETIC. Harbor General. General freight across regional hubs. No specialist equipment is verified. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C08",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2024247646331787,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hubs",
+              "regional"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Harbor General"
+          },
+          {
+            "source_id": "profile-C08-5",
+            "text": "SYNTHETIC. Harbor General. General freight across regional hubs. No specialist equipment is verified. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C08",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.19869184494018555,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hubs",
+              "regional"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Harbor General"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "hubs",
+            "regional"
+          ],
+          "freshness_unknown": [
+            "profile-C08-1",
+            "profile-C08-2",
+            "profile-C08-3",
+            "profile-C08-4",
+            "profile-C08-5"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-08-3",
+      "group": "C08",
+      "question": "Does Harbor General refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Harbor General refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C08-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-08-4",
+      "group": "C08",
+      "question": "What insurance compensation does Harbor General promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Harbor General promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C08-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-08-5",
+      "group": "C08",
+      "question": "Which languages do Harbor General customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Harbor General customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C08-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C08-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-09-1",
+      "group": "C09",
+      "question": "What does Orion Regulated describe for hazardous material?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C09-1",
+        "profile-C09-2",
+        "profile-C09-3",
+        "profile-C09-4",
+        "profile-C09-5"
+      ],
+      "result": {
+        "question": "What does Orion Regulated describe for hazardous material?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C09-1",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24262607097625732,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-3",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24262607097625732,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-2",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.23798060417175293,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-4",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24262607097625732,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-5",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.23798060417175293,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "handling-hazmat",
+            "text": "SYNTHETIC authored guidance: hazmat cargo requires an explicit hazmat capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.06262320280075073,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "hazmat",
+            "material"
+          ],
+          "freshness_unknown": [
+            "profile-C09-1",
+            "profile-C09-3",
+            "profile-C09-2",
+            "profile-C09-4",
+            "profile-C09-5",
+            "handling-hazmat"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-09-2",
+      "group": "C09",
+      "question": "What does Orion Regulated say about secure regulated freight?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C09-1",
+        "profile-C09-2",
+        "profile-C09-3",
+        "profile-C09-4",
+        "profile-C09-5"
+      ],
+      "result": {
+        "question": "What does Orion Regulated say about secure regulated freight?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C09-1",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2945060729980469,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-3",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2945060729980469,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-2",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2888672351837158,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-4",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2945060729980469,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "profile-C09-5",
+            "text": "SYNTHETIC. Orion Regulated. Secure regulated freight with explicit hazardous-material eligibility. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C09",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2888672351837158,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Orion Regulated"
+          },
+          {
+            "source_id": "handling-secure",
+            "text": "SYNTHETIC authored guidance: secure cargo requires an explicit secure capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.02398771047592163,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "secure"
+          ],
+          "freshness_unknown": [
+            "profile-C09-1",
+            "profile-C09-3",
+            "profile-C09-2",
+            "profile-C09-4",
+            "profile-C09-5",
+            "handling-secure"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-09-3",
+      "group": "C09",
+      "question": "Does Orion Regulated refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Orion Regulated refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C09-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-09-4",
+      "group": "C09",
+      "question": "What insurance compensation does Orion Regulated promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Orion Regulated promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C09-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-09-5",
+      "group": "C09",
+      "question": "Which languages do Orion Regulated customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Orion Regulated customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C09-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C09-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-10-1",
+      "group": "C10",
+      "question": "What does Juniper Care describe for delicate fragile goods?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C10-1",
+        "profile-C10-2",
+        "profile-C10-3",
+        "profile-C10-4",
+        "profile-C10-5"
+      ],
+      "result": {
+        "question": "What does Juniper Care describe for delicate fragile goods?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C10-1",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3794742226600647,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-2",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3794742226600647,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-3",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3794742226600647,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-4",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3794742226600647,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-5",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.37272554636001587,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "handling-fragile",
+            "text": "SYNTHETIC authored guidance: fragile cargo requires an explicit fragile capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.18842124938964844,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "fragile",
+            "goods"
+          ],
+          "freshness_unknown": [
+            "profile-C10-1",
+            "profile-C10-2",
+            "profile-C10-3",
+            "profile-C10-4",
+            "profile-C10-5",
+            "handling-fragile"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-10-2",
+      "group": "C10",
+      "question": "What does Juniper Care say about padded handling?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C10-1",
+        "profile-C10-2",
+        "profile-C10-3",
+        "profile-C10-4",
+        "profile-C10-5"
+      ],
+      "result": {
+        "question": "What does Juniper Care say about padded handling?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C10-1",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.20940113067626953,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "handling",
+              "padded"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-2",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.20940113067626953,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "handling",
+              "padded"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-3",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.20940113067626953,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "handling",
+              "padded"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-4",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.20940113067626953,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "handling",
+              "padded"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          },
+          {
+            "source_id": "profile-C10-5",
+            "text": "SYNTHETIC. Juniper Care. Careful loading and padded handling for delicate fragile goods. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C10",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.20567703247070312,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "handling",
+              "padded"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Juniper Care"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "handling",
+            "padded"
+          ],
+          "freshness_unknown": [
+            "profile-C10-1",
+            "profile-C10-2",
+            "profile-C10-3",
+            "profile-C10-4",
+            "profile-C10-5"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-10-3",
+      "group": "C10",
+      "question": "Does Juniper Care refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Juniper Care refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C10-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-10-4",
+      "group": "C10",
+      "question": "What insurance compensation does Juniper Care promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Juniper Care promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C10-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-5",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-10-5",
+      "group": "C10",
+      "question": "Which languages do Juniper Care customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Juniper Care customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C10-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C10-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    }
+  ],
+  "nlp": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 152,
+    "fp": 0,
+    "fn": 0,
+    "per_field": {
+      "required_capabilities": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 16,
+        "fp": 0,
+        "fn": 0
+      },
+      "max_budget_cents": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0
+      },
+      "destination": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 32,
+        "fp": 0,
+        "fn": 0
+      },
+      "optimization_goal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0
+      },
+      "origin": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 32,
+        "fp": 0,
+        "fn": 0
+      },
+      "pallets": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "cases": 32,
+    "clarification_accuracy": 1.0,
+    "failures": 0,
+    "mode": "offline-rules"
+  },
+  "policies": {
+    "cases": 25,
+    "answerable_retrieval_recall": 0.9,
+    "relevance_gate_accuracy_proxy": 0.96,
+    "citation_precision": null,
+    "unsupported_source_selections": null,
+    "unanswerable_abstention_accuracy": null,
+    "answerable_questions_with_findings": null,
+    "evaluated_live_or_gate_samples": 0,
+    "model_failures": null,
+    "human_grounding_review": "not performed; fill exported sample review fields"
+  }
+}

@@ -24,6 +24,14 @@ with sync_playwright() as p:
     assert page.locator('#sources details').count()==len(data['evidence'])
     page.locator('#sources summary').first.click()
     assert page.locator('#sources details').first.get_attribute('open') is not None
+    page.fill('#question','Does Cobalt Secure Ground refund cancellations?')
+    page.select_option('#carrier-one','C01')
+    page.select_option('#carrier-two','')
+    with page.expect_response('**/api/v1/policies/questions') as absent:
+        page.get_by_role('button',name='Find policy information').click()
+    assert absent.value.json()['status']=='insufficient_evidence'
+    page.get_by_role('heading',name='Not enough relevant evidence',exact=True).wait_for()
+    assert page.locator('#sources details').count()==0
     # Exercise model-result UI with a validated-source fixture, without external calls.
     source=data['evidence'][0]
     data.update(status='answered',mode='model-assisted-extractive',warnings=[],
@@ -36,6 +44,11 @@ with sync_playwright() as p:
     assert page.locator('#findings blockquote').inner_text()==source['text']
     page.locator('#findings a').click()
     assert page.locator('#sources details').first.get_attribute('open') is not None
+    data.update(status='conflicting_evidence',findings=[],conflicts=[{'source_ids':[source['source_id']],'reason':'review_required'}])
+    page.get_by_role('button',name='Find policy information').click()
+    page.get_by_role('heading',name='Conflicting evidence · Review required',exact=True).wait_for()
+    assert page.locator('#findings blockquote').count()==0
+    data['conflicts']=[]
     data.update(status='not_documented',findings=[])
     page.get_by_role('button',name='Find policy information').click()
     page.get_by_role('heading',name='Not answered by the retrieved documents',exact=True).wait_for()

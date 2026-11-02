@@ -53,6 +53,8 @@ Choose **Carrier policies** in the sidebar when you want to understand the avail
 
 When a language model is configured, the page shows selected passages with source links and any unanswered parts of the question. Open a source to check its full wording and version. If the documents do not specify packaging, temperature ranges or guarantees, do not assume those requirements are satisfied. Missing documentation is not evidence that a service is prohibited.
 
+If no current relevant passages are available, the page shows **Not enough relevant evidence**. Conflicting sources show **Review required** and no approved answer. Sources without effective dates are labelled **freshness unknown**; this does not mean they are up to date.
+
 Without a configured model, the page shows related passages for manual review and clearly labels them as search results. All evidence is synthetic. This feature does not change carrier eligibility, prices or schedules, and each question starts a fresh review.
 
 ## What a project review should demonstrate

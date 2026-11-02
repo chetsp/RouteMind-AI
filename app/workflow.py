@@ -41,6 +41,7 @@ class State(TypedDict, total=False):
     interpretation: dict
     comparison: dict | None
     suggestions: list
+    evidence_assessment: dict
     cargo_interpretation: list
     clarification_count: int
 
@@ -121,26 +122,39 @@ def build_workflow(db, retriever, checkpointer=None):
             questions.extend(f"{'.'.join(str(x) for x in e['loc']) or 'constraints'}: {e['msg']}" for e in exc.errors(include_input=False))
             parsed = raw
         evidence = state.get('evidence',[])
+        review = None
         if any('Cargo review' in q for q in questions):
-            try: evidence = retriever.query(state['message'],k=5,mode='hybrid')
-            except Exception: evidence = []
-        return {"constraints": parsed, "questions": list(dict.fromkeys(questions)), 'evidence':evidence,
+            try:
+                candidates = retriever.query(state['message'],k=len(retriever.docs),mode='hybrid')
+                review = retriever.assess(state['message'], candidates)
+                evidence = review['evidence'][:5] if review['status'] == 'sufficient_evidence' else []
+            except Exception:
+                evidence = []
+                review = {'status':'retrieval_unavailable'}
+        return {**({'evidence_assessment':{k:v for k,v in review.items() if k != 'evidence'}} if review else {}), "constraints": parsed, "questions": list(dict.fromkeys(questions)), 'evidence':evidence,
             "status": "needs_clarification" if questions else "planning", "trace": trace(state, "validate")}
 
     def retrieve(state):
         c = Constraints.model_validate(state["constraints"])
         query = state['message'] + ' ' + ' '.join(c.required_capabilities) + f' {c.origin} {c.destination}'
         try:
-            evidence = retriever.query(query, k=8, mode="hybrid")
+            evidence = retriever.query(query, k=len(retriever.docs), mode="hybrid")
+            assessment = retriever.assess(query, evidence)
+            evidence = assessment["evidence"][:8] if assessment["status"] == "sufficient_evidence" else []
             warnings = state.get("warnings", []) + ([retriever.warning] if getattr(retriever,'warning',None) else [])
         except Exception as exc:
             log.warning("retrieval_unavailable request_id=%s error_type=%s", state["request_id"], type(exc).__name__)
             evidence = []
+            assessment = {"status":"retrieval_unavailable", "excluded":[], "conflicts":[]}
             warnings = state.get("warnings", []) + ["Carrier evidence retrieval unavailable. Routes use verified SQL eligibility only; no prose capability claims are made."]
+        if assessment['status'] != 'sufficient_evidence':
+            warnings.append('Carrier evidence is insufficient, conflicting or unavailable. The plan uses verified SQL records only.')
+        if assessment.get('freshness_unknown'):
+            warnings.append('Some carrier sources have no effective dates; freshness is unknown.')
         interpretation = [{'capability':cap,'policy':'SQL carrier flag must be explicitly enabled on every leg.',
             'source_ids':[e['source_id'] for e in evidence if cap in e['text'].lower()],
             'status':'requested; eligibility checked by SQL, not inferred from similarity'} for cap in c.required_capabilities]
-        return {"evidence": evidence, "warnings": list(dict.fromkeys(warnings)), 'cargo_interpretation':interpretation, "trace": trace(state, "retrieve")}
+        return {"evidence": evidence, "evidence_assessment": {k:v for k,v in assessment.items() if k != "evidence"}, "warnings": list(dict.fromkeys(warnings)), 'cargo_interpretation':interpretation, "trace": trace(state, "retrieve")}
 
     def optimize(state):
         plans, reasons, count = search(db.network(), Constraints.model_validate(state["constraints"]))
@@ -163,9 +177,11 @@ def build_workflow(db, retriever, checkpointer=None):
                     # Retrieval can now use verified carrier IDs; it still cannot
                     # authorize services or alter the optimizer's chosen route.
                     query = ' '.join(selected[i] for i in sorted(missing))+' '+' '.join(state['constraints']['required_capabilities'])
-                    extra = retriever.query(query,k=min(6,2*len(missing)),mode='hybrid',carrier_ids=missing)
+                    extra = retriever.query(query,k=len(retriever.docs),mode='hybrid',carrier_ids=missing)
                     known = {e['source_id'] for e in evidence}
-                    evidence += [e for e in extra if e['source_id'] not in known and e.get('carrier_id') in missing]
+                    extra_review = retriever.assess(query, extra)
+                    if extra_review['status'] == 'sufficient_evidence':
+                        evidence += [e for e in extra_review['evidence'] if e['source_id'] not in known and e.get('carrier_id') in missing][:min(6,2*len(missing))]
                 except Exception as exc:
                     log.warning('explanation_evidence_unavailable request_id=%s error_type=%s',state['request_id'],type(exc).__name__)
         c = Constraints.model_validate(state['constraints'])

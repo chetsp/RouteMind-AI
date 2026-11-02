@@ -6,7 +6,7 @@ import re
 from collections import Counter
 from pathlib import Path
 import chromadb
-from app.database import documents
+from app.database import documents, document_reviews
 
 
 def tokens(text):
@@ -31,6 +31,7 @@ def hash_vector(text):
 
 class Retriever:
     def __init__(self, db):
+        self.db = db
         self.docs = db.all(documents)
         self.by_id = {d["id"]: d for d in self.docs}
         self.encoder = None
@@ -74,12 +75,13 @@ class Retriever:
             old = set(self.collection.get()["ids"]) - set(self.by_id)
             if old:
                 self.collection.delete(ids=list(old))
-            self.collection.upsert(ids=[d["id"] for d in self.docs],
-                documents=[d["text"] for d in self.docs], embeddings=self.embed([d["text"] for d in self.docs]),
-                metadatas=[{"carrier_id": d["carrier_id"] or "", "document_type": d["document_type"], "version": d["version"], "provenance": "synthetic"} for d in self.docs])
+            if self.docs:
+                self.collection.upsert(ids=[d["id"] for d in self.docs],
+                    documents=[d["text"] for d in self.docs], embeddings=self.embed([d["text"] for d in self.docs]),
+                    metadatas=[{"carrier_id": d["carrier_id"] or "", "document_type": d["document_type"], "version": d["version"], "provenance": "synthetic"} for d in self.docs])
             self.collection.modify(metadata={"corpus_hash": fingerprint})
         self.doc_tokens = {d["id"]: Counter(tokens(d["text"])) for d in self.docs}
-        self.avg_len = sum(sum(t.values()) for t in self.doc_tokens.values())/len(self.docs)
+        self.avg_len = sum(sum(t.values()) for t in self.doc_tokens.values())/max(1,len(self.docs))
 
     def embed(self, texts):
         if self.encoder:
@@ -102,7 +104,10 @@ class Retriever:
 
     def query(self, query, k=5, mode="hybrid", carrier_ids=None):
         allowed = {d["id"] for d in self.docs if carrier_ids is None or d["carrier_id"] in carrier_ids or d["carrier_id"] is None}
+        if not self.docs:
+            return []
         result = self.collection.query(query_embeddings=self.embed([query]), n_results=len(self.docs))
+        similarities = {ident: 1-float(distance) for ident, distance in zip(result["ids"][0], result["distances"][0])}
         dense = [i for i in result["ids"][0] if i in allowed]
         lexical = [i for i, score in self.bm25(query) if i in allowed and score > 0]
         if mode == "dense":
@@ -123,5 +128,15 @@ class Retriever:
                 ranked = top + ranked[15:]
         return [{"source_id": i, "text": self.by_id[i]["text"], "carrier_id": self.by_id[i]["carrier_id"],
                  "document_type": self.by_id[i]["document_type"], "version": self.by_id[i]["version"],
-                 "provenance": "synthetic", "retrieval_method": mode, "embedding_version": self.model_version}
+                 "provenance": "synthetic", "retrieval_method": mode, "embedding_version": self.model_version,
+                 "embedding_backend": self.backend, "dense_similarity": similarities.get(i)}
                 for i in ranked[:k]]
+
+
+    def assess(self, query, candidates):
+        from app.evidence import assess_evidence
+        _, carriers, _ = self.db.network()
+        reviews = {r['source_id']: r for r in self.db.all(document_reviews)}
+        return assess_evidence(query, candidates, reviews=reviews,
+            carrier_names=[c['name'] for c in carriers.values()],
+            capabilities={i: set(c['capabilities']) for i,c in carriers.items()})

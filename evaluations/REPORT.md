@@ -43,3 +43,7 @@ Workflow latency spans 100 fixtures; HTTP latency uses 12 in-process ASGI sample
 The fixtures are synthetic regressions, not held-out human-labeled production data. Repeated profile sections and carrier-name queries make retrieval optimistic. Exact-patch matching is not entity F1. Live LLM quality, Ragas, human grounding review, token cost, real freight eligibility and production latency are unmeasured. Pharmaceutical certification and numeric temperature ranges are not modeled.
 
 Run `EMBEDDING_BACKEND=hash .venv/bin/python -m evaluations.run`, then `EMBEDDING_BACKEND=minilm .venv/bin/python -m evaluations.run`. Results are retained separately in `results-hash.json` and `results-minilm.json`; `results.json` is the most recent run. Labels are in `planning_requests.json`, `nlp_queries.json`, and `retrieval_queries.json`. For the real model test run `RUN_SEMANTIC_TESTS=1 .venv/bin/pytest tests/test_semantic.py -q`.
+
+## Evidence-quality extension
+
+The historical results above predate the policy safeguards. See [the separate quality evaluation](quality/README.md) for group-split entity F1, policy retrieval/gate results and full reviewable samples. The new offline reports do not measure live-model or human grounding quality.

@@ -57,6 +57,16 @@ documents = Table("documents", metadata,
     Column("version", Integer, nullable=False))
 
 
+# Additive table: create_all adds it to existing installations without rewriting records.
+# Logical IDs group revisions of ONE passage; distinct sections must have distinct IDs.
+document_reviews = Table("document_reviews", metadata,
+    Column("source_id", ForeignKey("documents.id"), primary_key=True),
+    Column("logical_id", String, nullable=False),
+    Column("effective_from", UTCDateTime), Column("effective_until", UTCDateTime),
+    Column("claims_json", Text, nullable=False, default="{}"),
+    CheckConstraint("effective_until IS NULL OR effective_from IS NULL OR effective_until > effective_from"))
+
+
 class Database:
     def __init__(self, url=None):
         data = Path(os.getenv("DATA_DIR", ".data"))

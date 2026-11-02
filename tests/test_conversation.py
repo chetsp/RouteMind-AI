@@ -119,7 +119,10 @@ def test_soft_direct_preference(nlp):
 def test_cargo_review_is_not_pharmaceutical_certification(nlp):
     state=nlp.post('/api/v1/plans',json={'message':'15 pallets of temperature-sensitive pharmaceuticals from Fremont to Austin'}).json()
     assert state['status']=='needs_clarification'
-    assert state['evidence']
+    # No pharmaceutical certification sources exist: retrieval must abstain
+    # instead of attaching an unrelated carrier passage to the clarification.
+    assert state['evidence_assessment']['status']=='insufficient_evidence'
+    assert not state['evidence']
     state=nlp.post('/api/v1/plans/'+state['request_id']+'/clarify',json={'constraints':{'required_capabilities':['refrigerated']}}).json()
     assert state['status']=='completed'
     assert state['recommended_plan']['plan_id']=='plan-S008-S009'

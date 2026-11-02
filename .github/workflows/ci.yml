@@ -41,8 +41,13 @@ jobs:
       - name: Actual MiniLM integration
         if: matrix.database == 'sqlite'
         run: RUN_SEMANTIC_TESTS=1 pytest tests/test_semantic.py -q
+      - name: Group-split NLP and policy quality evaluation
+        if: matrix.database == 'sqlite'
+        run: python -m evaluations.quality.run --split test --backend minilm --output evaluations/quality-ci.json
       - uses: actions/upload-artifact@v4
         if: matrix.database == 'sqlite'
         with:
           name: synthetic-benchmark-results
-          path: evaluations/results*.json
+          path: |
+            evaluations/results*.json
+            evaluations/quality-ci.json

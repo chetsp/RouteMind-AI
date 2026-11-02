@@ -1,0 +1,3807 @@
+{
+  "dataset_version": "quality-v1",
+  "dataset_sha256": "e62afed8c3af4fee348203145315126a9bef4c73ce00d54837e16ad1c59419bf",
+  "split": "dev",
+  "embedding_backend": "hash",
+  "live_model": false,
+  "partial_run": false,
+  "model": null,
+  "construction": "Authored synthetic labels with shared question templates; route-pair NLP groups and carrier policy groups are disjoint across splits. Not independent human or production data.",
+  "limitations": [
+    "Test labels are visible in the repository; do not tune on the test split.",
+    "Synthetic shared templates, not independently human-labelled data or production accuracy.",
+    "Exact entity matching and gold-source citation precision are proxies, not human faithfulness judgement.",
+    "No live-model answer-quality metrics are populated without --live-model."
+  ],
+  "nlp_samples": [
+    {
+      "id": "nlp-01-1",
+      "group": "SEA-DEN",
+      "message": "Ship 9 pallets of fragile electronics from Seattle to Denver under $3,200; cheapest.",
+      "expected": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-01-2",
+      "group": "SEA-DEN",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Seattle to Denver under four grand.",
+      "expected": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-01-3",
+      "group": "SEA-DEN",
+      "message": "General freight from Seattle to Denver, cheapest, under $2,500.",
+      "expected": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-01-4",
+      "group": "SEA-DEN",
+      "message": "Move 6 pallets from Seattle to Denver tomorrow; require high reliability.",
+      "expected": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "SEA",
+        "destination": "DEN",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-02-1",
+      "group": "PDX-SLC",
+      "message": "Ship 9 pallets of fragile electronics from Portland to Salt Lake City under $3,200; cheapest.",
+      "expected": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-02-2",
+      "group": "PDX-SLC",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Portland to Salt Lake City under four grand.",
+      "expected": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-02-3",
+      "group": "PDX-SLC",
+      "message": "General freight from Portland to Salt Lake City, cheapest, under $2,500.",
+      "expected": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-02-4",
+      "group": "PDX-SLC",
+      "message": "Move 6 pallets from Portland to Salt Lake City tomorrow; require high reliability.",
+      "expected": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "PDX",
+        "destination": "SLC",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-03-1",
+      "group": "LAX-HOU",
+      "message": "Ship 9 pallets of fragile electronics from Los Angeles to Houston under $3,200; cheapest.",
+      "expected": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-03-2",
+      "group": "LAX-HOU",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Los Angeles to Houston under four grand.",
+      "expected": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-03-3",
+      "group": "LAX-HOU",
+      "message": "General freight from Los Angeles to Houston, cheapest, under $2,500.",
+      "expected": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-03-4",
+      "group": "LAX-HOU",
+      "message": "Move 6 pallets from Los Angeles to Houston tomorrow; require high reliability.",
+      "expected": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "LAX",
+        "destination": "HOU",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-04-1",
+      "group": "DAL-ATL",
+      "message": "Ship 9 pallets of fragile electronics from Dallas to Atlanta under $3,200; cheapest.",
+      "expected": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-04-2",
+      "group": "DAL-ATL",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Dallas to Atlanta under four grand.",
+      "expected": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-04-3",
+      "group": "DAL-ATL",
+      "message": "General freight from Dallas to Atlanta, cheapest, under $2,500.",
+      "expected": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-04-4",
+      "group": "DAL-ATL",
+      "message": "Move 6 pallets from Dallas to Atlanta tomorrow; require high reliability.",
+      "expected": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "DAL",
+        "destination": "ATL",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-05-1",
+      "group": "BOS-NYC",
+      "message": "Ship 9 pallets of fragile electronics from Boston to New York under $3,200; cheapest.",
+      "expected": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-05-2",
+      "group": "BOS-NYC",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Boston to New York under four grand.",
+      "expected": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-05-3",
+      "group": "BOS-NYC",
+      "message": "General freight from Boston to New York, cheapest, under $2,500.",
+      "expected": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-05-4",
+      "group": "BOS-NYC",
+      "message": "Move 6 pallets from Boston to New York tomorrow; require high reliability.",
+      "expected": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "BOS",
+        "destination": "NYC",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-06-1",
+      "group": "MIA-CLT",
+      "message": "Ship 9 pallets of fragile electronics from Miami to Charlotte under $3,200; cheapest.",
+      "expected": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-06-2",
+      "group": "MIA-CLT",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Miami to Charlotte under four grand.",
+      "expected": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-06-3",
+      "group": "MIA-CLT",
+      "message": "General freight from Miami to Charlotte, cheapest, under $2,500.",
+      "expected": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-06-4",
+      "group": "MIA-CLT",
+      "message": "Move 6 pallets from Miami to Charlotte tomorrow; require high reliability.",
+      "expected": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "MIA",
+        "destination": "CLT",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-07-1",
+      "group": "PHX-SAT",
+      "message": "Ship 9 pallets of fragile electronics from Phoenix to San Antonio under $3,200; cheapest.",
+      "expected": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-07-2",
+      "group": "PHX-SAT",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Phoenix to San Antonio under four grand.",
+      "expected": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-07-3",
+      "group": "PHX-SAT",
+      "message": "General freight from Phoenix to San Antonio, cheapest, under $2,500.",
+      "expected": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-07-4",
+      "group": "PHX-SAT",
+      "message": "Move 6 pallets from Phoenix to San Antonio tomorrow; require high reliability.",
+      "expected": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "PHX",
+        "destination": "SAT",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-08-1",
+      "group": "CHI-AUS",
+      "message": "Ship 9 pallets of fragile electronics from Chicago to Austin under $3,200; cheapest.",
+      "expected": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 9,
+        "required_capabilities": [
+          "fragile"
+        ],
+        "max_budget_cents": 320000,
+        "optimization_goal": "cheapest"
+      },
+      "actual": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 9,
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 320000,
+        "required_capabilities": [
+          "fragile"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-08-2",
+      "group": "CHI-AUS",
+      "message": "Find the fastest route for a dozen pallets of chilled food from Chicago to Austin under four grand.",
+      "expected": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 12,
+        "required_capabilities": [
+          "refrigerated"
+        ],
+        "max_budget_cents": 400000,
+        "optimization_goal": "fastest"
+      },
+      "actual": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 12,
+        "optimization_goal": "fastest",
+        "max_budget_cents": 400000,
+        "required_capabilities": [
+          "refrigerated"
+        ]
+      },
+      "expected_clarification": false,
+      "actual_clarification": false,
+      "error": null
+    },
+    {
+      "id": "nlp-08-3",
+      "group": "CHI-AUS",
+      "message": "General freight from Chicago to Austin, cheapest, under $2,500.",
+      "expected": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "actual": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "optimization_goal": "cheapest",
+        "max_budget_cents": 250000
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    },
+    {
+      "id": "nlp-08-4",
+      "group": "CHI-AUS",
+      "message": "Move 6 pallets from Chicago to Austin tomorrow; require high reliability.",
+      "expected": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 6
+      },
+      "actual": {
+        "origin": "CHI",
+        "destination": "AUS",
+        "pallets": 6
+      },
+      "expected_clarification": true,
+      "actual_clarification": true,
+      "error": null
+    }
+  ],
+  "policy_samples": [
+    {
+      "id": "policy-01-1",
+      "group": "C01",
+      "question": "What does Cobalt Secure Ground describe for fragile electronics?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C01-1",
+        "profile-C01-2",
+        "profile-C01-3",
+        "profile-C01-4",
+        "profile-C01-5"
+      ],
+      "result": {
+        "question": "What does Cobalt Secure Ground describe for fragile electronics?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C01-1",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3939530849456787,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-3",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3882194757461548,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-2",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.38272881507873535,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-4",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3882194757461548,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-5",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.38272881507873535,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "handling-fragile",
+            "text": "SYNTHETIC authored guidance: fragile cargo requires an explicit fragile capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.22231066226959229,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "fragile"
+          ],
+          "freshness_unknown": [
+            "profile-C01-1",
+            "profile-C01-3",
+            "profile-C01-2",
+            "profile-C01-4",
+            "profile-C01-5",
+            "handling-fragile"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-01-2",
+      "group": "C01",
+      "question": "What does Cobalt Secure Ground say about sealed trailers and controlled handoffs?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C01-1",
+        "profile-C01-2",
+        "profile-C01-3",
+        "profile-C01-4",
+        "profile-C01-5"
+      ],
+      "result": {
+        "question": "What does Cobalt Secure Ground say about sealed trailers and controlled handoffs?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C01-2",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.387984037399292,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "controlled",
+              "handoffs",
+              "secure",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-3",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.36991608142852783,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "controlled",
+              "handoffs",
+              "secure",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-1",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.351396381855011,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "controlled",
+              "handoffs",
+              "secure",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-4",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.36991608142852783,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "controlled",
+              "handoffs",
+              "secure",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "profile-C01-5",
+            "text": "SYNTHETIC. Cobalt Secure Ground. Sealed trailers and controlled handoffs for fragile electronics and high-value freight. Trained teams protect delicate cargo. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C01",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3646843433380127,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "controlled",
+              "handoffs",
+              "secure",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Cobalt Secure Ground"
+          },
+          {
+            "source_id": "handling-secure",
+            "text": "SYNTHETIC authored guidance: secure cargo requires an explicit secure capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.11121433973312378,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "secure"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "controlled",
+            "handoffs",
+            "secure",
+            "trailers"
+          ],
+          "freshness_unknown": [
+            "profile-C01-2",
+            "profile-C01-3",
+            "profile-C01-1",
+            "profile-C01-4",
+            "profile-C01-5",
+            "handling-secure"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-01-3",
+      "group": "C01",
+      "question": "Does Cobalt Secure Ground refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Cobalt Secure Ground refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C01-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-01-4",
+      "group": "C01",
+      "question": "What insurance compensation does Cobalt Secure Ground promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Cobalt Secure Ground promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C01-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-01-5",
+      "group": "C01",
+      "question": "Which languages do Cobalt Secure Ground customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Cobalt Secure Ground customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C01-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C01-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-02-1",
+      "group": "C02",
+      "question": "What does Mesa Value Freight describe for general dry freight?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C02-1",
+        "profile-C02-2",
+        "profile-C02-3",
+        "profile-C02-4",
+        "profile-C02-5"
+      ],
+      "result": {
+        "question": "What does Mesa Value Freight describe for general dry freight?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C02-2",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.26923811435699463,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-1",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2653416395187378,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-3",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.26923811435699463,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-4",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.26923811435699463,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-5",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2653416395187378,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "dry"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "dry"
+          ],
+          "freshness_unknown": [
+            "profile-C02-2",
+            "profile-C02-1",
+            "profile-C02-3",
+            "profile-C02-4",
+            "profile-C02-5"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-02-2",
+      "group": "C02",
+      "question": "What does Mesa Value Freight say about standard pallet shipping?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C02-1",
+        "profile-C02-2",
+        "profile-C02-3",
+        "profile-C02-4",
+        "profile-C02-5"
+      ],
+      "result": {
+        "question": "What does Mesa Value Freight say about standard pallet shipping?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C02-2",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.32627248764038086,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "shipping",
+              "standard"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-1",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3215506076812744,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "shipping",
+              "standard"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-3",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.32627248764038086,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "shipping",
+              "standard"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-4",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.32627248764038086,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "shipping",
+              "standard"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          },
+          {
+            "source_id": "profile-C02-5",
+            "text": "SYNTHETIC. Mesa Value Freight. Economical general dry freight and standard pallet shipping. Specialized handling is not verified. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C02",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3215506076812744,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "shipping",
+              "standard"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Mesa Value Freight"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "shipping",
+            "standard"
+          ],
+          "freshness_unknown": [
+            "profile-C02-2",
+            "profile-C02-1",
+            "profile-C02-3",
+            "profile-C02-4",
+            "profile-C02-5"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-02-3",
+      "group": "C02",
+      "question": "Does Mesa Value Freight refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Mesa Value Freight refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C02-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-02-4",
+      "group": "C02",
+      "question": "What insurance compensation does Mesa Value Freight promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Mesa Value Freight promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C02-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-02-5",
+      "group": "C02",
+      "question": "Which languages do Mesa Value Freight customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Mesa Value Freight customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C02-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C02-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-03-1",
+      "group": "C03",
+      "question": "What does Glacier Cold Chain describe for chilled food?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C03-1",
+        "profile-C03-2",
+        "profile-C03-3",
+        "profile-C03-4",
+        "profile-C03-5"
+      ],
+      "result": {
+        "question": "What does Glacier Cold Chain describe for chilled food?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C03-1",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3954542875289917,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "food",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-2",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.38813626766204834,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "food",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-3",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.38813626766204834,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "food",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-4",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.38813626766204834,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "food",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-5",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.3812099099159241,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "food",
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "handling-refrigerated",
+            "text": "SYNTHETIC authored guidance: refrigerated cargo requires an explicit refrigerated capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.10527646541595459,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "food",
+            "refrigerated"
+          ],
+          "freshness_unknown": [
+            "profile-C03-1",
+            "profile-C03-2",
+            "profile-C03-3",
+            "profile-C03-4",
+            "profile-C03-5",
+            "handling-refrigerated"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-03-2",
+      "group": "C03",
+      "question": "What does Glacier Cold Chain say about temperature-controlled trailers?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C03-1",
+        "profile-C03-2",
+        "profile-C03-3",
+        "profile-C03-4",
+        "profile-C03-5"
+      ],
+      "result": {
+        "question": "What does Glacier Cold Chain say about temperature-controlled trailers?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C03-2",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.28615760803222656,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-3",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.28615760803222656,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-1",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.25691908597946167,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-4",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.28615760803222656,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "profile-C03-5",
+            "text": "SYNTHETIC. Glacier Cold Chain. Temperature-controlled refrigerated trailers for chilled food and cold-chain cargo. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C03",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2810510993003845,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated",
+              "trailers"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Glacier Cold Chain"
+          },
+          {
+            "source_id": "handling-refrigerated",
+            "text": "SYNTHETIC authored guidance: refrigerated cargo requires an explicit refrigerated capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.10527646541595459,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "refrigerated"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "refrigerated",
+            "trailers"
+          ],
+          "freshness_unknown": [
+            "profile-C03-2",
+            "profile-C03-3",
+            "profile-C03-1",
+            "profile-C03-4",
+            "profile-C03-5",
+            "handling-refrigerated"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-03-3",
+      "group": "C03",
+      "question": "Does Glacier Cold Chain refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Glacier Cold Chain refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C03-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-03-4",
+      "group": "C03",
+      "question": "What insurance compensation does Glacier Cold Chain promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Glacier Cold Chain promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C03-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-03-5",
+      "group": "C03",
+      "question": "Which languages do Glacier Cold Chain customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Glacier Cold Chain customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C03-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C03-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-04-1",
+      "group": "C04",
+      "question": "What does Atlas Express describe for fragile goods?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C04-1",
+        "profile-C04-2",
+        "profile-C04-3",
+        "profile-C04-4",
+        "profile-C04-5"
+      ],
+      "result": {
+        "question": "What does Atlas Express describe for fragile goods?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C04-1",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.24430131912231445,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-3",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.23995649814605713,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-2",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.23583567142486572,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-4",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.23995649814605713,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-5",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.23583567142486572,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile",
+              "goods"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "handling-fragile",
+            "text": "SYNTHETIC authored guidance: fragile cargo requires an explicit fragile capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.06262320280075073,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "fragile"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "fragile",
+            "goods"
+          ],
+          "freshness_unknown": [
+            "profile-C04-1",
+            "profile-C04-3",
+            "profile-C04-2",
+            "profile-C04-4",
+            "profile-C04-5",
+            "handling-fragile"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-04-2",
+      "group": "C04",
+      "question": "What does Atlas Express say about priority ground service?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C04-1",
+        "profile-C04-2",
+        "profile-C04-3",
+        "profile-C04-4",
+        "profile-C04-5"
+      ],
+      "result": {
+        "question": "What does Atlas Express say about priority ground service?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C04-1",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.28498756885528564,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "priority",
+              "service"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-3",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.27991920709609985,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "priority",
+              "service"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-2",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2751120328903198,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "priority",
+              "service"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-4",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.27991920709609985,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "priority",
+              "service"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          },
+          {
+            "source_id": "profile-C04-5",
+            "text": "SYNTHETIC. Atlas Express. Priority ground service with secure trailers and careful fragile-goods handling. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C04",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2751120328903198,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "priority",
+              "service"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Atlas Express"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "priority",
+            "service"
+          ],
+          "freshness_unknown": [
+            "profile-C04-1",
+            "profile-C04-3",
+            "profile-C04-2",
+            "profile-C04-4",
+            "profile-C04-5"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-04-3",
+      "group": "C04",
+      "question": "Does Atlas Express refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Atlas Express refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C04-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-04-4",
+      "group": "C04",
+      "question": "What insurance compensation does Atlas Express promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Atlas Express promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C04-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-04-5",
+      "group": "C04",
+      "question": "Which languages do Atlas Express customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Atlas Express customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C04-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C04-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-05-1",
+      "group": "C05",
+      "question": "What does Copper Industrial describe for hazardous material?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C05-1",
+        "profile-C05-2",
+        "profile-C05-3",
+        "profile-C05-4",
+        "profile-C05-5"
+      ],
+      "result": {
+        "question": "What does Copper Industrial describe for hazardous material?",
+        "status": "related_documents",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [
+          {
+            "source_id": "profile-C05-1",
+            "text": "SYNTHETIC. Copper Industrial. Documented hazardous material handling for regulated industrial freight. Service note 1: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C05",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2041090726852417,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Copper Industrial"
+          },
+          {
+            "source_id": "profile-C05-2",
+            "text": "SYNTHETIC. Copper Industrial. Documented hazardous material handling for regulated industrial freight. Service note 2: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C05",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2041090726852417,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Copper Industrial"
+          },
+          {
+            "source_id": "profile-C05-3",
+            "text": "SYNTHETIC. Copper Industrial. Documented hazardous material handling for regulated industrial freight. Service note 3: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C05",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.2041090726852417,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Copper Industrial"
+          },
+          {
+            "source_id": "profile-C05-4",
+            "text": "SYNTHETIC. Copper Industrial. Documented hazardous material handling for regulated industrial freight. Service note 4: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C05",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.20028412342071533,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Copper Industrial"
+          },
+          {
+            "source_id": "profile-C05-5",
+            "text": "SYNTHETIC. Copper Industrial. Documented hazardous material handling for regulated industrial freight. Service note 5: schedules, capacity and eligibility must be verified in the structured network.",
+            "carrier_id": "C05",
+            "document_type": "carrier_profile",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.20028412342071533,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat",
+              "material"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "Copper Industrial"
+          },
+          {
+            "source_id": "handling-hazmat",
+            "text": "SYNTHETIC authored guidance: hazmat cargo requires an explicit hazmat capability flag. Each transfer requires the hub buffer. Descriptive similarity does not establish eligibility.",
+            "carrier_id": null,
+            "document_type": "handling_guidance",
+            "version": 1,
+            "provenance": "synthetic",
+            "retrieval_method": "hybrid",
+            "embedding_version": "normalized-feature-hash-v1-384",
+            "embedding_backend": "hash",
+            "dense_similarity": 0.09960949420928955,
+            "freshness": "unknown",
+            "effective_from": null,
+            "effective_until": null,
+            "matched_terms": [
+              "hazmat"
+            ],
+            "relevance_basis": "term_overlap",
+            "carrier_name": "General guidance"
+          }
+        ],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "Some sources have no effective dates; their freshness is unknown.",
+          "Model-based policy reading is unavailable. Showing related passages only; these are not a confirmed answer. Configure Gemini or OpenAI using the existing model settings."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "sufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "hazmat",
+            "material"
+          ],
+          "freshness_unknown": [
+            "profile-C05-1",
+            "profile-C05-2",
+            "profile-C05-3",
+            "profile-C05-4",
+            "profile-C05-5",
+            "handling-hazmat"
+          ],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-05-2",
+      "group": "C05",
+      "question": "What does Copper Industrial say about regulated industrial freight?",
+      "answerable": true,
+      "gold_source_ids": [
+        "profile-C05-1",
+        "profile-C05-2",
+        "profile-C05-3",
+        "profile-C05-4",
+        "profile-C05-5"
+      ],
+      "result": {
+        "question": "What does Copper Industrial say about regulated industrial freight?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C05-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-05-3",
+      "group": "C05",
+      "question": "Does Copper Industrial refund cancellations?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Does Copper Industrial refund cancellations?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C05-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "cancellations",
+            "refund"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-05-4",
+      "group": "C05",
+      "question": "What insurance compensation does Copper Industrial promise?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "What insurance compensation does Copper Industrial promise?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C05-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-5",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "compensation",
+            "insurance",
+            "promise"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "policy-05-5",
+      "group": "C05",
+      "question": "Which languages do Copper Industrial customer representatives speak?",
+      "answerable": false,
+      "gold_source_ids": [],
+      "result": {
+        "question": "Which languages do Copper Industrial customer representatives speak?",
+        "status": "insufficient_evidence",
+        "mode": "retrieval-only",
+        "findings": [],
+        "unanswered_questions": [],
+        "evidence": [],
+        "embedding_backend": "hash",
+        "embedding_model": "normalized-feature-hash-v1-384",
+        "warnings": [
+          "No current passages passed the relevance check. Missing evidence is not a negative carrier policy."
+        ],
+        "data_type": "synthetic",
+        "evidence_assessment": {
+          "status": "insufficient_evidence",
+          "excluded": [
+            {
+              "source_id": "profile-C05-1",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-2",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-3",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-4",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "profile-C05-5",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-fragile",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-secure",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-refrigerated",
+              "reason": "below_relevance_gate"
+            },
+            {
+              "source_id": "handling-hazmat",
+              "reason": "below_relevance_gate"
+            }
+          ],
+          "conflicts": [],
+          "query_terms": [
+            "customer",
+            "languages",
+            "representatives",
+            "speak"
+          ],
+          "freshness_unknown": [],
+          "gate_version": "term-overlap-or-learned-cosine-0.55-v1",
+          "limitations": "Relevance is heuristic, not answer completeness. Undated sources have unknown freshness. Structured conflict checks cover reviewed capability claims only."
+        },
+        "conflicts": [],
+        "boundary": "Document descriptions do not establish shipment eligibility. The route planner checks structured carrier capabilities and schedules."
+      },
+      "human_review": {
+        "relevant": null,
+        "complete": null,
+        "unsupported_claim": null,
+        "notes": ""
+      }
+    }
+  ],
+  "nlp": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 152,
+    "fp": 0,
+    "fn": 0,
+    "per_field": {
+      "destination": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 32,
+        "fp": 0,
+        "fn": 0
+      },
+      "optimization_goal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0
+      },
+      "required_capabilities": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 16,
+        "fp": 0,
+        "fn": 0
+      },
+      "origin": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 32,
+        "fp": 0,
+        "fn": 0
+      },
+      "max_budget_cents": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0
+      },
+      "pallets": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "cases": 32,
+    "clarification_accuracy": 1.0,
+    "failures": 0,
+    "mode": "offline-rules"
+  },
+  "policies": {
+    "cases": 25,
+    "answerable_retrieval_recall": 0.9,
+    "relevance_gate_accuracy_proxy": 0.96,
+    "citation_precision": null,
+    "unsupported_source_selections": null,
+    "unanswerable_abstention_accuracy": null,
+    "answerable_questions_with_findings": null,
+    "evaluated_live_or_gate_samples": 0,
+    "model_failures": null,
+    "human_grounding_review": "not performed; fill exported sample review fields"
+  }
+}
