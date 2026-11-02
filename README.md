@@ -221,3 +221,7 @@ An additive `document_reviews` table stores optional `source_id`, `logical_id`, 
 Reviewed claims are explicit carrier-level capability booleans, e.g. `{"fragile": true}`, and are checked against other reviewed claims and authoritative SQL flags. They must be assigned by a reviewer, not inferred automatically from prose. Missing annotations do not mean a negative policy. General prose contradictions can be flagged by the configured model with exact supporting quotations; this requests human review, not an automatic resolution. Metadata is read for each assessment; restart after changing document text to rebuild its embeddings. The legacy synthetic documents have no effective dates and remain labelled accordingly.
 
 See the [quality evaluation guide and actual results](evaluations/quality/README.md) for frozen development/test groups, entity F1, clarification checks, retrieval and abstention proxies, and optional live-model evaluation. Offline runs never call hosted models. Live-model quality and human grounding scores remain unmeasured.
+
+### Additional evaluation workflow
+
+The [Ragas, paired parser and human-review guide](evaluations/quality/REVIEW_GUIDE.md) adds opt-in policy-answer judging, an identical-input rules/LLM comparison and independent 10-case reviewer forms. Live/judge results remain unmeasured until explicitly run with local credentials; reviewer ratings remain blank until completed by people. Ragas dependencies are isolated from the application.

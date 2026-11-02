@@ -44,7 +44,7 @@ def run(split='test',backend='hash',live=False,limit=None,output=None):
     config=llm_configuration()
     report={'dataset_version':data['version'],'dataset_sha256':hashlib.sha256(raw).hexdigest(),
         'split':split,'embedding_backend':backend,'live_model':live,'partial_run':limit is not None,
-        'model':config['model'] if live else None,'construction':data['construction'],
+        'model':config['model'] if live else None,'provider':config['provider'] if live else None,'construction':data['construction'],
         'limitations':['Test labels are visible in the repository; do not tune on the test split.',
           'Synthetic shared templates, not independently human-labelled data or production accuracy.',
           'Exact entity matching and gold-source citation precision are proxies, not human faithfulness judgement.',

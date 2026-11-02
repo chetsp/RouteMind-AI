@@ -54,3 +54,7 @@ Hosted calls may incur charges. A full split evaluates 32 extraction requests an
 Perfect extraction on repeated synthetic templates does not establish general language understanding. The development MiniLM result also shows that a learned similarity score can admit irrelevant passages. The gate is conservative screening, not a completeness guarantee; thresholds have not been statistically calibrated. Hosted model answer quality, human grounding and operational impact remain unmeasured.
 
 Adversarial coverage for expired/future/superseded documents, reviewed-claim conflicts, SQL disagreements, fabricated citations and SQL-only route planning lives in `tests/test_evidence.py` and `tests/test_policies.py`.
+
+## Ragas, paired parser comparison and reviewer study
+
+See [the evaluation workflow](REVIEW_GUIDE.md) for optional Ragas faithfulness/context-precision/answer-relevance judging, a paired rules-versus-LLM parser comparison, and two independent 10-case review packs with 5 shared cases. Ragas uses a separate pinned environment. Paid calls require explicit flags; actual human ratings are never generated automatically. These tools do not change the earlier offline scores or establish completed live/human evaluation.

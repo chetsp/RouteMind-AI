@@ -1,0 +1,7 @@
+# Optional judge environment only. Do not replace the application's requirements.lock.
+ragas==0.2.15
+langchain-core==0.3.63
+langchain==0.3.25
+langchain-community==0.3.24
+langchain-openai==0.3.18
+langchain-google-genai==2.1.4
