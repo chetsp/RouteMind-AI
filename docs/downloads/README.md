@@ -23,3 +23,14 @@ Five opening slides: shipment-choice question, project introduction, six-factor 
 - [PowerPoint](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Introduction_and_Problem_Statement.pptx)
 - [PDF](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Introduction_and_Problem_Statement.pdf)
 - [Slides and speaker notes ZIP](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Introduction_and_Problem_Statement.zip)
+
+## Uploaded class deck: first five slides with visuals
+
+The uploaded PDF’s first five slides have been redesigned with a clearly labelled AI-generated freight image, editable route diagrams/icons and a screenshot of the actual application using synthetic data. Team names and the five-slide order are preserved.
+
+- [Editable first five slides (PowerPoint)](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_First_Five_Visual_Slides.pptx)
+- [First five slides (PDF)](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_First_Five_Visual_Slides.pdf)
+- [Full 15-page PDF with pages 6–15 unchanged](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Full_Presentation_With_Visuals.pdf)
+- [All files and speaker notes (ZIP)](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Visual_Presentation_Pack.zip)
+
+The editable PowerPoint contains only the redesigned first five slides. Insert those into your original editable deck; the source provided for this edit was a PDF. The full PDF preserves the remaining pages without converting them into editable PowerPoint elements.
