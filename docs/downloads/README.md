@@ -15,3 +15,11 @@ Both presentations include an introduction as slide 2, speaker notes and 11 slid
 - [All four files as a ZIP](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Updated_Presentations.zip)
 
 These retain the stated implementation/evaluation snapshot; the technical document is unchanged.
+
+## Class opening: introduction and problem statement
+
+Five opening slides: shipment-choice question, project introduction, six-factor context graph, problem statement and the complementary roles of SQL and RAG. Includes presenter notes for an approximately three-minute opening.
+
+- [PowerPoint](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Introduction_and_Problem_Statement.pptx)
+- [PDF](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Introduction_and_Problem_Statement.pdf)
+- [Slides and speaker notes ZIP](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Introduction_and_Problem_Statement.zip)

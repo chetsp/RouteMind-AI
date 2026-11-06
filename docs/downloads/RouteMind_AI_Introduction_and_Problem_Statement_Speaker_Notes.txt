@@ -1,0 +1,17 @@
+RouteMind AI — Introduction and Problem Statement
+Suggested opening: about 3 minutes
+
+Slide 1: Which route would you choose?
+Suggested delivery: 35–45 seconds. Say: Imagine you are responsible for this shipment. Option A costs $2,100 and includes a transfer. Option B costs $3,400, is direct and arrives eight hours earlier. Which would you choose? Pause and invite two responses. Then ask: Would your answer change if there were a strict delivery deadline or special handling requirements? State that these prices and services are simulated demo examples. The eight-hour difference is from the same scenario start; it is not a live service commitment.
+
+Slide 2: Meet RouteMind AI
+Suggested delivery: 20–25 seconds. RouteMind AI helps logistics planners describe a shipment in everyday language, compare feasible route options and explore changes. It also helps users inspect carrier-policy passages with citations. The planner stays in control. The prototype uses synthetic data and makes no bookings. Introduce the team: Chetana Patel, Dilara Siraeva and Minh N Phan.
+
+Slide 3: What makes a route suitable?
+Suggested delivery: 25–30 seconds. Start at the centre. A shipment decision depends on budget, delivery deadline, quantity, handling, practical connections and each carrier’s reliability. A cheaper route may involve a transfer; earlier arrival may cost more. These are connected considerations. Changing one requirement can change the best option. The graph is a presentation visual, not a graph database feature. Reliability means the configured per-carrier threshold, not a promised combined on-time probability.
+
+Slide 4: From a request to a decision you can explain
+Suggested delivery: 25–35 seconds. Read the central question, then explain the three tasks. First, understand the request and clarify what is missing. Second, check the actual routes against every hard requirement. Third, explain the outcome and show source information without inventing facts. Say that this is a research and prototype problem statement; we have not measured actual planning time or financial savings at a real company.
+
+Slide 5: Two kinds of information. Two different jobs.
+Suggested delivery: 35–45 seconds. Explain RAG as retrieval-augmented generation: find relevant passages and give them to a language model as context. SQL is appropriate for exact schedules, prices and capacity. RAG helps find handling descriptions even when the question uses different wording, then supports cited document answers. It is not the only possible search approach: SQL full-text and keyword search are alternatives. RouteMind combines semantic and keyword retrieval and evaluates them rather than claiming universal superiority. The optimizer calculates routes, and SQL capability flags determine eligibility. If asked whether RAG is required for routing, answer no: it supports document questions and explanations. All source material in the prototype is synthetic; stronger independent evaluation is still needed.
