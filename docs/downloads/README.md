@@ -34,3 +34,12 @@ The uploaded PDF’s first five slides have been redesigned with a clearly label
 - [All files and speaker notes (ZIP)](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Visual_Presentation_Pack.zip)
 
 The editable PowerPoint contains only the redesigned first five slides. Insert those into your original editable deck; the source provided for this edit was a PDF. The full PDF preserves the remaining pages without converting them into editable PowerPoint elements.
+
+## Course checkpoint project report
+
+Report prepared November 14, 2026, covering motivation, three directly relevant papers, datasets/access, implementation, compute/resource status, evaluation, confirmed team responsibilities and a proposed equal-workload timeline. The final course deadline remains unconfirmed; the four-week dates and future resource/work allocations are explicitly provisional.
+
+- [Editable Word report](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Project_Report.docx)
+- [PDF report](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Project_Report.pdf)
+- [Markdown source](RouteMind_AI_Project_Report.md)
+- [All formats ZIP](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Project_Report.zip)
