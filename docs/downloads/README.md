@@ -43,3 +43,12 @@ Report prepared November 14, 2026, covering motivation, three directly relevant 
 - [PDF report](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Project_Report.pdf)
 - [Markdown source](RouteMind_AI_Project_Report.md)
 - [All formats ZIP](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Project_Report.zip)
+
+## Technical document reformatted to the course report requirements
+
+Reorganizes the uploaded technical PDF into Description/Motivation, Related Work (three papers), Project Plan (Datasets, Implementation, Resources, Evaluation), Team Work/Timeline and References. Retains the source architecture figure and core technical details. Team contacts/roles are confirmed; future work, costs and timeline dates remain proposed.
+
+- [Word report](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Reformatted_Project_Report.docx)
+- [PDF report](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Reformatted_Project_Report.pdf)
+- [Markdown source](RouteMind_AI_Reformatted_Project_Report.md)
+- [All formats and architecture ZIP](https://github.com/chetsp/RouteMind-AI/raw/refs/heads/main/docs/downloads/RouteMind_AI_Reformatted_Project_Report.zip)
